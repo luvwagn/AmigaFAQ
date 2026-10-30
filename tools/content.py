@@ -462,3 +462,69 @@ Amiga browsers.</li>
 </ul>
 """),
 ])
+
+# Glossary: (term, definition). Grouped by first letter on the Glossary page.
+GLOSSARY = [
+("ADF", "Amiga Disk File: an image of an Amiga floppy disk, used by emulators and floppy emulators."),
+("Agnus", "The OCS/ECS custom chip that controls memory access (DMA) and contains the Copper and the Blitter. Later versions, Fat Agnus and Super Agnus, can reach more Chip RAM. Its AGA equivalent is Alice."),
+("AGA", "Advanced Graphics Architecture: the third-generation chipset, in the A1200, A4000 and CD32, with a 24-bit palette and up to 256 colors on screen."),
+("Alice", "The AGA chip that replaced Agnus."),
+("AmigaDOS", "The disk operating system part of AmigaOS, which handles files, drives and the command-line tools."),
+("Aminet", "The largest archive of freely distributable Amiga software, online since the early 1990s."),
+("ARexx", "A scripting language built into AmigaOS from version 2.0. Programs that offer an ARexx port can be controlled and linked together by scripts."),
+("Autoconfig", "The Amiga's plug-and-play system: expansion cards identify themselves and are set up automatically at boot, with no jumpers or drivers needed for basic setup."),
+("Bitplane", "The way Amiga graphics are stored: each bit of a pixel's color number lives in a separate plane of memory. More bitplanes mean more colors, for example 5 bitplanes give 32 colors."),
+("Blitter", "Part of Agnus (or Alice) that copies and combines blocks of memory very quickly, used heavily for drawing graphics and moving objects in games."),
+("Chip RAM", "Memory shared by the processor and the custom chips. Graphics, sound and floppy data must be in Chip RAM."),
+("CIA", "Complex Interface Adapter: two 8520 chips that handle the keyboard, floppy control signals, the parallel port, joysticks and timers."),
+("CLI / Shell", "The Amiga command line, where commands such as Dir, Copy and Assign are typed. The Shell is the improved version from Workbench 1.3 onward."),
+("Copper", "A simple co-processor in Agnus (or Alice) that changes hardware settings in step with the video beam. It produces effects like the colorful gradients known as copper bars."),
+("Cracktro", "A short intro added to a pirated game by the group that removed its copy protection. Cracktros were a starting point for the demoscene."),
+("Demoscene", "A creative community making real-time audiovisual productions (demos) that push hardware to its limits. The Amiga was one of its most important platforms."),
+("Denise", "The OCS/ECS video chip that turns bitplanes and sprites into the picture on screen. Its AGA equivalent is Lisa."),
+("Drawer", "Workbench's name for a folder or directory."),
+("ECS", "Enhanced Chip Set: the second-generation chipset, adding more addressable Chip RAM and new screen modes."),
+("EHB", "Extra Half-Brite: a screen mode showing 64 colors, where the extra 32 are half-brightness copies of the first 32."),
+("Exec", "The multitasking kernel at the heart of AmigaOS."),
+("Fast RAM", "Memory used only by the processor. Programs run faster from it because they never wait for the custom chips."),
+("FFS / OFS", "Fast File System and Old (original) File System: the Amiga's disk formats. FFS, introduced with AmigaOS 1.3, is quicker and stores more data."),
+("Flicker fixer / scan doubler", "A video upgrade that converts the Amiga's 15kHz picture into a VGA-style signal for modern monitors. A flicker fixer also removes the flicker of interlaced modes."),
+("Gadget", "The Amiga term for a user interface control, such as a button, slider, or a window's close and depth gadgets."),
+("Gotek", "A floppy drive replacement that loads disk images (ADF files) from a USB stick, widely used on real Amigas."),
+("Guru Meditation", "The Amiga's name for a serious system error, shown as a flashing red box with an error code."),
+("HAM", "Hold-And-Modify: a screen mode that shows far more colors by building each pixel from its neighbor: 4,096 colors in HAM6, and 262,144 in AGA's HAM8."),
+("HDF", "An image of an Amiga hard disk or partition, used by emulators."),
+("Info file", "A file ending in .info that stores a Workbench icon and settings for a program, project or drawer."),
+("Interlace", "A screen mode that doubles vertical resolution by drawing alternate lines on each frame, which flickers on a normal monitor."),
+("Intuition", "The AmigaOS library that provides screens, windows, menus and gadgets."),
+("IPF", "A preservation-quality floppy image that also captures the original copy protection."),
+("Kickstart", "The core of AmigaOS, stored in ROM (or, on the A1000, loaded from disk), which boots the machine."),
+("Lisa", "The AGA video chip that replaced Denise."),
+("Module (MOD)", "A music file made with a tracker, containing both instrument samples and note patterns. The format began on the Amiga."),
+("OCS", "Original Chip Set: the first-generation chipset, in the A1000, early A500s and A2000s."),
+("Paula", "The custom chip that plays 4-channel, 8-bit sampled sound and also handles floppy data, the serial port and interrupts."),
+("PCMCIA", "The credit-card-sized expansion slot on the A600 and A1200, used for memory, network cards and CompactFlash adapters."),
+("RDB", "Rigid Disk Block: the area at the start of an Amiga hard disk that records its partitions and file systems."),
+("Requester", "The Amiga term for a dialog box, such as an About box or a file requester."),
+("Screen", "In AmigaOS, programs can open their own screens, each with its own resolution and colors. Screens can be dragged down to reveal the ones behind them."),
+("Slow RAM", "Extra memory, such as the A500 trapdoor expansion, that sits on the custom chips' bus. Only the processor uses it, but it is no faster than Chip RAM."),
+("Startup-sequence", "The script in the S: drawer that runs when an Amiga boots from disk."),
+("Tracker", "A music program that arranges samples in a vertical grid of patterns. Ultimate Soundtracker on the Amiga started the format."),
+("Trapdoor", "The expansion slot underneath the A500 and A1200, used for memory and, on the A1200, accelerator cards."),
+("WHDLoad", "A system that lets floppy-based games and demos be installed and run from a hard disk."),
+("Workbench", "The Amiga's graphical desktop and its set of tools."),
+("Zorro", "The expansion bus in the big-box Amigas: 16-bit Zorro II in the A2000, and 32-bit Zorro III in the A3000 and A4000."),
+]
+
+def _glossary_groups():
+    groups = {}
+    for term, definition in sorted(GLOSSARY, key=lambda t: t[0].lower()):
+        letter = term[0].upper()
+        groups.setdefault(letter, []).append((term, definition))
+    out = []
+    for letter in sorted(groups):
+        items = "\n".join("<dt>%s</dt>\n<dd>%s</dd>" % td for td in groups[letter])
+        out.append((letter, '<dl class="gloss">\n%s\n</dl>' % items))
+    return out
+
+CONTENT["glossary"] = ("Amiga terms and jargon, explained.", _glossary_groups())

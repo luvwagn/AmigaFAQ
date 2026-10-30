@@ -359,3 +359,26 @@ table.specs td { padding: 4px 10px 4px 0; }
   table.specs { margin-left: 0; }
   table.specs th { white-space: normal; }
 }
+
+/* ---------- Glossary ---------- */
+dl.gloss { margin: 6px 0 4px; }
+dl.gloss dt {
+  font-family: var(--topaz);
+  font-size: 16px;
+  -webkit-font-smoothing: none;
+  margin-top: 10px;
+}
+dl.gloss dd { margin: 2px 0 0 24px; }
+/* Big letter headings on the glossary page */
+.qa:has(> dl.gloss) > h3 { font-size: 32px; line-height: 1.1; margin: 10px 0 0; }
+/* Sidebar letters laid out as a compact grid */
+ul.tree ul.qs.letters { padding-left: 14px; }
+ul.tree ul.qs.letters li { display: inline-block; margin: 2px 1px; }
+ul.tree ul.qs.letters a {
+  font-family: var(--topaz);
+  font-size: 16px;
+  -webkit-font-smoothing: none;
+  width: 24px;
+  text-align: center;
+  padding: 1px 0;
+}

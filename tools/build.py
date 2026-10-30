@@ -18,6 +18,7 @@ TOPICS = [
     ("emulation", "Emulation"),
     ("history", "History"),
     ("web-sites", "Web Sites"),
+    ("glossary", "Glossary"),
 ]
 
 exec(open(os.path.join(HERE, "content.py")).read())
@@ -57,7 +58,7 @@ def sidebar(current):
         active = slug == current
         lines.append('<li class="drawer%s">%s' % (" open" if active else "", item(slug + ".html", title, active)))
         if active:
-            lines.append('<ul class="qs">')
+            lines.append('<ul class="qs%s">' % (" letters" if slug == "glossary" else ""))
             for q, _ in CONTENT[slug][1]:
                 lines.append('<li>%s</li>' % item("#" + anchor(q), q, False))
             lines.append('</ul>')
@@ -140,7 +141,7 @@ def paras(text):
         p = p.strip()
         if p == "{{MODELS}}":
             out.append(models_html())
-        elif p.startswith("<ul") or p.startswith("<ol"):
+        elif p.startswith("<ul") or p.startswith("<ol") or p.startswith("<dl"):
             out.append(p)
         else:
             out.append("<p>%s</p>" % p)
@@ -169,9 +170,16 @@ software, running Amiga programs today, and the story behind the machine. Whethe
 an A500 from the attic or trying emulation for the first time, pick a topic from the list.</p>"""]
 for slug, title in TOPICS:
     intro, qas = CONTENT[slug]
-    sample = "\n".join('<li><a href="%s.html#%s">%s</a></li>' % (slug, anchor(q), q) for q, _ in qas[:3])
-    parts.append('<div class="qa">\n<h3><a href="%s.html">%s</a></h3>\n<p>%s</p>\n<ul>\n%s\n</ul>\n<p class="up"><a href="%s.html" class="btn">All %d questions</a></p>\n</div>'
-                 % (slug, title, intro, sample, slug, len(qas)))
+    if slug == "glossary":
+        terms = sorted(GLOSSARY, key=lambda t: t[0].lower())
+        picks = [t for t in terms if t[0] in ("Chip RAM", "Guru Meditation", "Kickstart")]
+        sample = "\n".join('<li><a href="glossary.html#%s">%s</a></li>' % (anchor(t[0][0]), t[0]) for t in picks)
+        button = "All %d terms" % len(terms)
+    else:
+        sample = "\n".join('<li><a href="%s.html#%s">%s</a></li>' % (slug, anchor(q), q) for q, _ in qas[:3])
+        button = "All %d questions" % len(qas)
+    parts.append('<div class="qa">\n<h3><a href="%s.html">%s</a></h3>\n<p>%s</p>\n<ul>\n%s\n</ul>\n<p class="up"><a href="%s.html" class="btn">%s</a></p>\n</div>'
+                 % (slug, title, intro, sample, slug, button))
 parts.append('<p class="note">This site is deliberately simple so it can be read on real Amiga web browsers as well as modern ones.</p>')
 write("index.html", page("index", "Home", "\n".join(parts)))
 
@@ -180,4 +188,4 @@ about = []
 for heading, text in ABOUT:
     about.append('<div class="qa">\n<h3>%s</h3>\n%s\n</div>' % (heading, paras(text)))
 write("about.html", page("about", "About AmigaFAQ", '<p class="intro">%s</p>\n%s' % (ABOUT_INTRO, "\n".join(about))))
-print("built", len(TOPICS) + 1, "pages;", sum(len(CONTENT[s][1]) for s, _ in TOPICS), "questions")
+print("built", len(TOPICS) + 2, "pages;", sum(len(CONTENT[s][1]) for s, _ in TOPICS if s != "glossary"), "questions;", len(GLOSSARY), "glossary terms")
