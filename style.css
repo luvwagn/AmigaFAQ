@@ -382,3 +382,6 @@ ul.tree ul.qs.letters a {
   text-align: center;
   padding: 1px 0;
 }
+
+/* Sub-topic drawers inside a topic drawer */
+ul.tree ul.subs { padding-left: 16px; }

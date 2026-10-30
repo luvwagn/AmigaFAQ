@@ -17,14 +17,14 @@ choice, since most late-1980s and early-1990s games were written for it.
 For the widest range of software and the most upgrade options, the <b>Amiga 1200</b> is the best
 all-rounder: it has the enhanced AGA graphics chipset, a built-in hard disk interface and a large
 range of modern accelerators. The big-box models (A2000, A3000, A4000) offer expansion slots but are
-larger, rarer and usually more expensive. See <a href="hardware.html">Hardware</a> for a model list.
+larger, rarer and usually more expensive. See <a href="hardware-general.html#what-amiga-models-were-made">Hardware: General</a> for a model list.
 """),
 ("What do I need besides the computer itself?", """
 At minimum: a power supply, a mouse, a way to connect a display, and some software. Original power
 supplies are now decades old, so many owners use a modern replacement built for the Amiga.
 
 The display is often the trickiest part. Amigas output a 15kHz RGB signal that most modern monitors
-cannot show directly. See <a href="hardware.html#how-do-i-connect-an-amiga-to-a-modern-monitor-or-tv">connecting to a modern monitor</a>.
+cannot show directly. See <a href="hardware-general.html#how-do-i-connect-an-amiga-to-a-modern-monitor-or-tv">connecting to a modern monitor</a>.
 """),
 ("What should I check on an old Amiga before switching it on?", """
 Look for a leaking clock battery. The Amiga 500 trapdoor memory expansion (A501) and the big-box
@@ -52,7 +52,7 @@ Some Amigas can be switched between modes, and emulators let you pick either one
 """),
 ])
 
-CONTENT["hardware"] = ("Models, chipsets, memory, video and upgrades.", [
+CONTENT["hardware-general"] = ("Models, chipsets, memory, video and upgrades.", [
 ("What Amiga models were made?", """
 These are the main Commodore models, with their release years. Select a model to see its key
 specifications as shipped (many were later upgraded by their owners).
@@ -528,3 +528,94 @@ def _glossary_groups():
     return out
 
 CONTENT["glossary"] = ("Amiga terms and jargon, explained.", _glossary_groups())
+
+# ---- Hardware sub-topics ----
+CONTENT["hardware"] = ("Amiga hardware, from the models and chipsets to sound, video and third-party upgrades.", [])
+
+CONTENT["hardware-audio"] = ("The Amiga's sound hardware and how to get the best from it.", [
+("What sound hardware does the Amiga have?", """
+Sound comes from the Paula custom chip, which plays four channels of 8-bit sampled sound at the same
+time, two on the left and two on the right. Because it plays real recorded samples rather than
+synthesized tones, the Amiga could produce music and effects far more realistic than most home
+computers of the 1980s.
+"""),
+("Why does Amiga sound seem muffled at times?", """
+Most Amigas have a built-in low-pass audio filter that softens high frequencies. On many models it is
+linked to the power LED: when software switches the filter off, the power light dims. Some programs
+and games turn the filter on or off, which is why the same machine can sound brighter or duller.
+"""),
+("How do I connect an Amiga to speakers or an amplifier?", """
+Most Amigas have two RCA (phono) sockets, one for the left channel and one for the right, carrying a
+line-level signal. Connect them to powered speakers, a stereo amplifier or a mixer using an ordinary
+RCA cable, with an RCA-to-3.5mm adapter if your speakers need one.
+"""),
+("Can an Amiga play higher-quality sound?", """
+Yes. Expansion sound cards add 16-bit audio, and the AHI system lets programs use them in a standard
+way. AHI can also combine Paula's channels in software to get better than 8-bit quality from the
+built-in hardware.
+"""),
+("Can I use MIDI with an Amiga?", """
+Yes. A MIDI interface plugs into the Amiga's serial port, letting it control synthesizers and other
+MIDI instruments with sequencer software.
+"""),
+])
+
+CONTENT["hardware-video"] = ("Video outputs, screen modes, graphics cards and video production.", [
+("What video outputs does the Amiga have?", """
+Every Amiga has a 23-pin analog RGB port, which gives the best picture on a compatible monitor. The
+A500 also has a monochrome composite output, while the A600 and A1200 have color composite and a
+built-in RF output for connecting to a TV. The A500 can also use an RF modulator plugged into its RGB
+port.
+
+For connecting to modern screens, see <a href="hardware-general.html#how-do-i-connect-an-amiga-to-a-modern-monitor-or-tv">connecting
+to a modern monitor or TV</a>.
+"""),
+("What screen modes can an Amiga display?", """
+The standard modes are low resolution (320 pixels wide) and high resolution (640 pixels wide), with
+256 lines on PAL machines and 200 on NTSC. Interlace doubles the number of lines, at the cost of
+flicker on an ordinary monitor.
+
+ECS and AGA machines add productivity modes, such as 640x480 without flicker, but these need a
+monitor that can handle higher scan rates.
+"""),
+("What are flicker fixers and scan doublers?", """
+Both convert the Amiga's 15kHz picture into a higher-frequency signal that VGA-style monitors can
+show. A flicker fixer also removes the flicker of interlaced modes. The A3000 has one built in;
+for other models it is an upgrade fitted inside the computer.
+"""),
+("What are graphics cards (RTG) on the Amiga?", """
+Graphics cards plug into the expansion slots of big-box Amigas and add high resolutions and many
+more colors than the built-in chipset. Software systems such as Picasso96 and CyberGraphX, often
+called RTG (retargetable graphics), let Workbench and programs use these cards.
+"""),
+("What is a genlock?", """
+A genlock synchronizes the Amiga's picture with an outside video source, so Amiga graphics can be
+overlaid on live video. It made the Amiga popular for titles and effects in video production.
+"""),
+])
+
+CONTENT["hardware-third-party"] = ("Upgrades and add-ons made by companies other than Commodore.", [
+("What is third-party Amiga hardware?", """
+Third-party hardware is anything made by companies other than Commodore: accelerators, memory
+expansions, hard disk controllers, graphics and sound cards, network cards, and video production
+equipment. Much of the Amiga's long life comes from this hardware.
+"""),
+("Which companies made classic Amiga upgrades?", """
+<ul>
+<li><b>GVP (Great Valley Products)</b> - accelerators and hard disk controllers.</li>
+<li><b>Phase 5</b> - the Blizzard and CyberStorm accelerators and CyberVision graphics cards.</li>
+<li><b>Village Tronic</b> - the Picasso graphics cards.</li>
+<li><b>NewTek</b> - the Video Toaster video production system for the A2000.</li>
+</ul>
+"""),
+("Is new Amiga hardware still being made?", """
+Yes. Companies and hobbyists still make accelerators, memory, network and USB adapters, video
+upgrades and replacement parts. Examples include Individual Computers, the open-source PiStorm
+project, Terrible Fire's open-source accelerators and the Apollo Team's FPGA-based Vampire boards.
+"""),
+("Where can I look up a particular expansion card?", """
+The <a href="https://bigbookofamigahardware.com/">Big Book of Amiga Hardware</a> and the
+<a href="https://amiga.resource.cx/">Amiga Hardware Database</a> both catalog thousands of
+expansion cards and peripherals, with photos and specifications.
+"""),
+])

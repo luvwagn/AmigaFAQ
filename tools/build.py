@@ -21,6 +21,26 @@ TOPICS = [
     ("glossary", "Glossary"),
 ]
 
+# Topics that are drawers of sub-topics. The parent page is an overview.
+SUBTOPICS = {
+    "hardware": [
+        ("hardware-general", "General"),
+        ("hardware-audio", "Audio"),
+        ("hardware-video", "Video"),
+        ("hardware-third-party", "Third Party"),
+    ],
+}
+PARENT = {child: parent for parent, kids in SUBTOPICS.items() for child, _ in kids}
+TITLES = dict(TOPICS)
+for kids in SUBTOPICS.values():
+    TITLES.update(dict(kids))
+
+def full_title(slug):
+    """Window/page title, e.g. "Hardware: Audio" for a sub-topic."""
+    if slug in PARENT:
+        return "%s: %s" % (TITLES[PARENT[slug]], TITLES[slug])
+    return TITLES[slug]
+
 exec(open(os.path.join(HERE, "content.py")).read())
 
 def anchor(q):
@@ -54,14 +74,27 @@ def sidebar(current):
     lines = ['<ul class="tree">']
     lines.append('<li class="drawer">%s</li>' % item("index.html", "AmigaFAQ", current == "index"))
     lines.append('<li><ul>')
+    def questions(slug):
+        lines.append('<ul class="qs%s">' % (" letters" if slug == "glossary" else ""))
+        for q, _ in CONTENT[slug][1]:
+            lines.append('<li>%s</li>' % item("#" + anchor(q), q, False))
+        lines.append('</ul>')
     for slug, title in TOPICS:
         active = slug == current
-        lines.append('<li class="drawer%s">%s' % (" open" if active else "", item(slug + ".html", title, active)))
-        if active:
-            lines.append('<ul class="qs%s">' % (" letters" if slug == "glossary" else ""))
-            for q, _ in CONTENT[slug][1]:
-                lines.append('<li>%s</li>' % item("#" + anchor(q), q, False))
+        kids = SUBTOPICS.get(slug)
+        inside = kids and PARENT.get(current) == slug
+        lines.append('<li class="drawer%s">%s' % (" open" if (active or inside) else "", item(slug + ".html", title, active)))
+        if kids and (active or inside):
+            lines.append('<ul class="subs">')
+            for kslug, ktitle in kids:
+                kactive = kslug == current
+                lines.append('<li class="drawer%s">%s' % (" open" if kactive else "", item(kslug + ".html", ktitle, kactive)))
+                if kactive:
+                    questions(kslug)
+                lines.append('</li>')
             lines.append('</ul>')
+        elif active:
+            questions(slug)
         lines.append('</li>')
     lines.append('</ul></li>')
     # Always the bottom-most entry, at the same level as "AmigaFAQ"
@@ -159,18 +192,13 @@ def write(name, html):
     with open(os.path.join(OUT, name), "w") as f:
         f.write(html)
 
-os.makedirs(OUT, exist_ok=True)
-for slug, title in TOPICS:
+def overview_card(slug, title, href_title=None):
     intro, qas = CONTENT[slug]
-    write(slug + ".html", qa_page(slug, title, intro, qas))
-
-# Home page
-parts = ["""<p class="intro">AmigaFAQ answers common questions about the Commodore Amiga: the hardware, the
-software, running Amiga programs today, and the story behind the machine. Whether you are dusting off
-an A500 from the attic or trying emulation for the first time, pick a topic from the list.</p>"""]
-for slug, title in TOPICS:
-    intro, qas = CONTENT[slug]
-    if slug == "glossary":
+    if slug in SUBTOPICS:
+        kids = SUBTOPICS[slug]
+        sample = "\n".join('<li><a href="%s.html">%s</a></li>' % (k, t) for k, t in kids)
+        button = "Open %s" % title
+    elif slug == "glossary":
         terms = sorted(GLOSSARY, key=lambda t: t[0].lower())
         picks = [t for t in terms if t[0] in ("Chip RAM", "Guru Meditation", "Kickstart")]
         sample = "\n".join('<li><a href="glossary.html#%s">%s</a></li>' % (anchor(t[0][0]), t[0]) for t in picks)
@@ -178,8 +206,27 @@ for slug, title in TOPICS:
     else:
         sample = "\n".join('<li><a href="%s.html#%s">%s</a></li>' % (slug, anchor(q), q) for q, _ in qas[:3])
         button = "All %d questions" % len(qas)
-    parts.append('<div class="qa">\n<h3><a href="%s.html">%s</a></h3>\n<p>%s</p>\n<ul>\n%s\n</ul>\n<p class="up"><a href="%s.html" class="btn">%s</a></p>\n</div>'
-                 % (slug, title, intro, sample, slug, button))
+    return ('<div class="qa">\n<h3><a href="%s.html">%s</a></h3>\n<p>%s</p>\n<ul>\n%s\n</ul>\n'
+            '<p class="up"><a href="%s.html" class="btn">%s</a></p>\n</div>' % (slug, title, intro, sample, slug, button))
+
+os.makedirs(OUT, exist_ok=True)
+for slug, title in TOPICS:
+    intro, qas = CONTENT[slug]
+    if slug in SUBTOPICS:
+        cards = "\n".join(overview_card(k, t) for k, t in SUBTOPICS[slug])
+        write(slug + ".html", page(slug, title, '<p class="intro">%s</p>\n%s' % (intro, cards)))
+        for kslug, ktitle in SUBTOPICS[slug]:
+            kintro, kqas = CONTENT[kslug]
+            write(kslug + ".html", qa_page(kslug, full_title(kslug), kintro, kqas))
+    else:
+        write(slug + ".html", qa_page(slug, title, intro, qas))
+
+# Home page
+parts = ["""<p class="intro">AmigaFAQ answers common questions about the Commodore Amiga: the hardware, the
+software, running Amiga programs today, and the story behind the machine. Whether you are dusting off
+an A500 from the attic or trying emulation for the first time, pick a topic from the list.</p>"""]
+for slug, title in TOPICS:
+    parts.append(overview_card(slug, title))
 parts.append('<p class="note">This site is deliberately simple so it can be read on real Amiga web browsers as well as modern ones.</p>')
 write("index.html", page("index", "Home", "\n".join(parts)))
 
@@ -188,4 +235,6 @@ about = []
 for heading, text in ABOUT:
     about.append('<div class="qa">\n<h3>%s</h3>\n%s\n</div>' % (heading, paras(text)))
 write("about.html", page("about", "About AmigaFAQ", '<p class="intro">%s</p>\n%s' % (ABOUT_INTRO, "\n".join(about))))
-print("built", len(TOPICS) + 2, "pages;", sum(len(CONTENT[s][1]) for s, _ in TOPICS if s != "glossary"), "questions;", len(GLOSSARY), "glossary terms")
+_qslugs = [k for k in CONTENT if k != "glossary"]
+print("built", len(TOPICS) + sum(len(v) for v in SUBTOPICS.values()) + 2, "pages;",
+      sum(len(CONTENT[k][1]) for k in _qslugs), "questions;", len(GLOSSARY), "glossary terms")
