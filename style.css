@@ -295,3 +295,7 @@ table.reqwin .pane {
   .tagline { text-align: left; padding: 0 8px; }
   .foot { padding: 4px 16px 16px; }
 }
+
+/* ---------- Mouse pointer (original pixel art, see tools/make_pointers.py) ---------- */
+html, body, * { cursor: url("icons/pointer.png") 0 0, default; }
+a, a *, .menu, .menu * { cursor: url("icons/pointer-link.png") 0 0, pointer; }
