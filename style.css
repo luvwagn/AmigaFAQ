@@ -1,12 +1,20 @@
 /* AmigaFAQ - Workbench 3.1 inspired style.
    Palette: the classic four Workbench colors. The HTML also carries bgcolor
    attributes, so old Amiga browsers get the grey look without this file. */
+/* Topaz (Workbench 3.x / A1200 version), see fonts/README.md for license */
+@font-face {
+  font-family: "Topaz WB";
+  src: url("fonts/topaz-a1200.woff") format("woff"), url("fonts/topaz-a1200.ttf") format("truetype");
+  font-display: swap;
+}
+
 :root {
   --wb-grey: #aaaaaa;
   --wb-black: #000000;
   --wb-white: #ffffff;
   --wb-blue: #6688bb;
   --chrome-font: "Topaz", "Topaz New", "Courier New", Courier, monospace;
+  --topaz: "Topaz WB", "Courier New", Courier, monospace;
   --text-font: Verdana, Geneva, "DejaVu Sans", Helvetica, Arial, sans-serif;
 }
 
@@ -32,9 +40,12 @@ body {
 .screenbar {
   background: var(--wb-white);
   color: var(--wb-black);
-  font-family: var(--chrome-font);
-  font-size: 14px;
-  padding: 3px 10px;
+  font-family: var(--topaz);
+  font-size: 16px;
+  line-height: 18px;
+  padding: 2px 10px;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
   border-bottom: 2px solid var(--wb-black);
   white-space: nowrap;
   overflow: hidden;
@@ -59,8 +70,10 @@ td.titlebar {
   /* the faint stripe of an active Workbench title bar */
   background-image: repeating-linear-gradient(to bottom, rgba(255,255,255,0.10) 0 1px, transparent 1px 3px);
   border-bottom: 1px solid var(--wb-black) !important;
-  font-family: var(--chrome-font);
-  font-size: 14px;
+  font-family: var(--topaz);
+  font-size: 16px;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
   padding: 0 34px !important;
   line-height: 22px;
   white-space: nowrap;
@@ -165,3 +178,6 @@ p.note { font-size: 13px; font-style: italic; }
   td.winbody { padding: 12px !important; border-left: 0; }
   .foot { padding: 4px 16px 16px; }
 }
+
+/* Topaz has no bold weight; faux-bold smears the pixels */
+.screenbar b, td.titlebar b { font-weight: normal; }
