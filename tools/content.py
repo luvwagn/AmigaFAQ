@@ -330,7 +330,7 @@ MODELS = [
 ("Amiga 600", "1992", "a compact model with IDE and PCMCIA.",
  [("Form factor", "Wedge (compact, no numeric keypad)"),
   ("CPU", "Motorola 68000 at 7.16 MHz (NTSC) / 7.09 MHz (PAL)"),
-  ("Chip RAM", "1 MB"),
+  ("Chip RAM", "1 MB (up to 2 MB)"),
   ("Chipset", "ECS"),
   ("Hard drive interface", "IDE (44-pin, for 2.5-inch drives)")]),
 ("Amiga 1200", "1992", "the AGA home computer.",
