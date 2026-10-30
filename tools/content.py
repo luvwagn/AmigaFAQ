@@ -182,7 +182,8 @@ and the software you want to run, usually as ADF or WHDLoad files.
 <b>WinUAE</b> (Windows) is the most accurate and complete Amiga emulator and the reference that
 others are measured against. <b>FS-UAE</b> runs on Windows, macOS and Linux. <b>Amiberry</b> is
 designed for Linux devices such as the Raspberry Pi. <b>vAmiga</b> is a macOS emulator focused on
-accuracy for the A500, A1000 and A2000.
+accuracy for the A500, A1000 and A2000. <b>Copperline</b> is a newer, free and open-source emulator for
+Windows, macOS and Linux that aims for cycle-accurate emulation of OCS, ECS and AGA machines.
 
 Amiga emulation is also available inside RetroArch through a libretro core.
 """),
