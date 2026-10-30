@@ -73,6 +73,10 @@ palette to 16.8 million colours with up to 256 on screen at once (and far more i
 The processor has to share it with the chips. <b>Fast RAM</b> can only be used by the processor, so
 programs run faster from it because they never wait for the custom chips.
 
+<b>Slow RAM</b> is a slower variation of Fast RAM. Like Fast RAM, only the processor can use it, but it
+sits on the same bus as the custom chips, so the processor still has to wait for them and it runs no
+faster than Chip RAM. The common A501 trapdoor expansion for the A500 adds 512KB of Slow RAM.
+
 Adding Fast RAM is one of the most noticeable upgrades for an A500 or A1200.
 """),
 ("Which processors did Amigas use?", """
