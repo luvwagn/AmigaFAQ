@@ -4,10 +4,12 @@
 Layout is a plain HTML table (sidebar + content) with bgcolor attributes, so
 classic Amiga browsers (AWeb, IBrowse, Voyager) still get the two-column grey
 look even without modern CSS. Output is ASCII only."""
-import sys, os, re
+import sys, os, re, hashlib
 
 OUT = sys.argv[1]
 HERE = os.path.dirname(os.path.abspath(__file__))
+# Version tag so browsers fetch the stylesheet again whenever it changes
+CSS_VER = hashlib.md5(open(os.path.join(OUT, "style.css"), "rb").read()).hexdigest()[:8]
 
 TOPICS = [
     ("getting-started", "Getting Started"),
@@ -61,7 +63,7 @@ def page(slug, title, body):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>%(full_title)s</title>
 <meta name="description" content="Answers to frequently asked questions about the Commodore Amiga.">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=%(css_ver)s">
 </head>
 <body bgcolor="#AAAAAA" text="#000000" link="#000000" vlink="#000000">
 <a name="top" id="top"></a>
@@ -82,7 +84,7 @@ Corrections and suggestions welcome on <a href="https://github.com/luvwagn/Amiga
 </div>
 </body>
 </html>
-""" % dict(full_title=full_title,
+""" % dict(full_title=full_title, css_ver=CSS_VER,
            sidebar=window("Topics", sidebar(slug), "sidewin"),
            main=window(title if slug != "index" else "AmigaFAQ", body, "mainwin"))
 
