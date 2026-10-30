@@ -300,5 +300,5 @@ table.reqwin .pane {
    From dkb-amiga.com, used with permission of Stefan Reinauer.
    PNG first (widest support), then the original .cur. Hotspot is (4,5).
    As on dkb-amiga.com, links show the normal hand pointer. */
-html, body, * { cursor: url("icons/amim.png") 4 5, url("icons/amim.cur"), default; }
+html, body, * { cursor: url("icons/amim.png?v=2") 4 5, url("icons/amim.cur"), default; }
 a, a * { cursor: pointer; }
