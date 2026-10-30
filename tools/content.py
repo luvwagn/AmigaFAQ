@@ -4,7 +4,7 @@ CONTENT = {}
 CONTENT["getting-started"] = ("New to the Amiga, or coming back after many years? Start here.", [
 ("What is the Amiga?", """
 The Amiga is a family of personal computers sold by Commodore from 1985 to 1994. Thanks to a set of
-custom chips that handled graphics, sound and memory access on their own, it could show more colors,
+custom chips that handled graphics, sound and memory access on their own, it could show more colours,
 play sampled stereo sound and multitask far beyond most home computers of its day.
 
 It became especially popular in Europe for games, and around the world for video, animation, music
@@ -61,12 +61,12 @@ specifications as shipped (many were later upgraded by their owners).
 """),
 ("What are OCS, ECS and AGA?", """
 These are the three generations of the Amiga custom chipset. <b>OCS</b> (Original Chip Set) shipped
-in the A1000, early A500s and A2000s. It can display up to 32 colors from a palette of 4,096, or all
+in the A1000, early A500s and A2000s. It can display up to 32 colours from a palette of 4,096, or all
 4,096 at once in the special HAM mode.
 
 <b>ECS</b> (Enhanced Chip Set) added more memory addressing and new screen modes, mainly useful for
 productivity. <b>AGA</b> (Advanced Graphics Architecture), in the A1200, A4000 and CD32, raised the
-palette to 16.8 million colors with up to 256 on screen at once (and far more in HAM8 mode).
+palette to 16.8 million colours with up to 256 on screen at once (and far more in HAM8 mode).
 """),
 ("What is the difference between Chip RAM and Fast RAM?", """
 <b>Chip RAM</b> is memory the custom chips can reach directly, so it holds graphics and sound data.
@@ -89,7 +89,7 @@ Amigas output 15kHz analog RGB through a 23-pin video port. Classic Commodore mo
 
 Common solutions are a <b>scan doubler or flicker fixer</b> (fitted inside the Amiga) or an external
 <b>upscaler</b> that converts the RGB signal to VGA or HDMI. The A500 and A2000 also have a
-composite output, but it is monochrome; the A1000, A600 and A1200 have color composite output, though
+composite output, but it is monochrome; the A1000, A600 and A1200 have colour composite output, though
 the picture quality is lower than RGB.
 """),
 ("What floppy disks does the Amiga use?", """
@@ -287,8 +287,8 @@ or propose a change.
 ("Can I reuse the content?", """
 Yes. The text of this site is licensed under the
 <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">Creative Commons
-Attribution-ShareAlike 4.0</a> license. You may copy, adapt and share it, including commercially, as
-long as you credit AmigaFAQ with a link to amigafaq.org and share your version under the same license.
+Attribution-ShareAlike 4.0</a> licence. You may copy, adapt and share it, including commercially, as
+long as you credit AmigaFAQ with a link to amigafaq.org and share your version under the same licence.
 """),
 ("Credits", """
 Titles and headings use the Topaz typeface, as recreated in TrueType form by dMG/t!s^dS! in the
@@ -467,24 +467,24 @@ Amiga browsers.</li>
 GLOSSARY = [
 ("ADF", "Amiga Disk File: an image of an Amiga floppy disk, used by emulators and floppy emulators."),
 ("Agnus", "The OCS/ECS custom chip that controls memory access (DMA) and contains the Copper and the Blitter. Later versions, Fat Agnus and Super Agnus, can reach more Chip RAM. Its AGA equivalent is Alice."),
-("AGA", "Advanced Graphics Architecture: the third-generation chipset, in the A1200, A4000 and CD32, with a 24-bit palette and up to 256 colors on screen."),
+("AGA", "Advanced Graphics Architecture: the third-generation chipset, in the A1200, A4000 and CD32, with a 24-bit palette and up to 256 colours on screen."),
 ("Alice", "The AGA chip that replaced Agnus."),
 ("AmigaDOS", "The disk operating system part of AmigaOS, which handles files, drives and the command-line tools."),
 ("Aminet", "The largest archive of freely distributable Amiga software, online since the early 1990s."),
 ("ARexx", "A scripting language built into AmigaOS from version 2.0. Programs that offer an ARexx port can be controlled and linked together by scripts."),
 ("Autoconfig", "The Amiga's plug-and-play system: expansion cards identify themselves and are set up automatically at boot, with no jumpers or drivers needed for basic setup."),
-("Bitplane", "The way Amiga graphics are stored: each bit of a pixel's color number lives in a separate plane of memory. More bitplanes mean more colors, for example 5 bitplanes give 32 colors."),
+("Bitplane", "The way Amiga graphics are stored: each bit of a pixel's colour number lives in a separate plane of memory. More bitplanes mean more colours, for example 5 bitplanes give 32 colours."),
 ("Blitter", "Part of Agnus (or Alice) that copies and combines blocks of memory very quickly, used heavily for drawing graphics and moving objects in games."),
 ("Chip RAM", "Memory shared by the processor and the custom chips. Graphics, sound and floppy data must be in Chip RAM."),
 ("CIA", "Complex Interface Adapter: two 8520 chips that handle the keyboard, floppy control signals, the parallel port, joysticks and timers."),
 ("CLI / Shell", "The Amiga command line, where commands such as Dir, Copy and Assign are typed. The Shell is the improved version from Workbench 1.3 onward."),
-("Copper", "A simple co-processor in Agnus (or Alice) that changes hardware settings in step with the video beam. It produces effects like the colorful gradients known as copper bars."),
+("Copper", "A simple co-processor in Agnus (or Alice) that changes hardware settings in step with the video beam. It produces effects like the colourful gradients known as copper bars."),
 ("Cracktro", "A short intro added to a pirated game by the group that removed its copy protection. Cracktros were a starting point for the demoscene."),
 ("Demoscene", "A creative community making real-time audiovisual productions (demos) that push hardware to its limits. The Amiga was one of its most important platforms."),
 ("Denise", "The OCS/ECS video chip that turns bitplanes and sprites into the picture on screen. Its AGA equivalent is Lisa."),
 ("Drawer", "Workbench's name for a folder or directory."),
 ("ECS", "Enhanced Chip Set: the second-generation chipset, adding more addressable Chip RAM and new screen modes."),
-("EHB", "Extra Half-Brite: a screen mode showing 64 colors, where the extra 32 are half-brightness copies of the first 32."),
+("EHB", "Extra Half-Brite: a screen mode showing 64 colours, where the extra 32 are half-brightness copies of the first 32."),
 ("Exec", "The multitasking kernel at the heart of AmigaOS."),
 ("Fast RAM", "Memory used only by the processor. Programs run faster from it because they never wait for the custom chips."),
 ("FFS / OFS", "Fast File System and Old (original) File System: the Amiga's disk formats. FFS, introduced with AmigaOS 1.3, is quicker and stores more data."),
@@ -492,7 +492,7 @@ GLOSSARY = [
 ("Gadget", "The Amiga term for a user interface control, such as a button, slider, or a window's close and depth gadgets."),
 ("Gotek", "A floppy drive replacement that loads disk images (ADF files) from a USB stick, widely used on real Amigas."),
 ("Guru Meditation", "The Amiga's name for a serious system error, shown as a flashing red box with an error code."),
-("HAM", "Hold-And-Modify: a screen mode that shows far more colors by building each pixel from its neighbor: 4,096 colors in HAM6, and 262,144 in AGA's HAM8."),
+("HAM", "Hold-And-Modify: a screen mode that shows far more colours by building each pixel from its neighbour: 4,096 colours in HAM6, and 262,144 in AGA's HAM8."),
 ("HDF", "An image of an Amiga hard disk or partition, used by emulators."),
 ("Info file", "A file ending in .info that stores a Workbench icon and settings for a program, project or drawer."),
 ("Interlace", "A screen mode that doubles vertical resolution by drawing alternate lines on each frame, which flickers on a normal monitor."),
@@ -505,8 +505,8 @@ GLOSSARY = [
 ("Paula", "The custom chip that plays 4-channel, 8-bit sampled sound and also handles floppy data, the serial port and interrupts."),
 ("PCMCIA", "The credit-card-sized expansion slot on the A600 and A1200, used for memory, network cards and CompactFlash adapters."),
 ("RDB", "Rigid Disk Block: the area at the start of an Amiga hard disk that records its partitions and file systems."),
-("Requester", "The Amiga term for a dialog box, such as an About box or a file requester."),
-("Screen", "In AmigaOS, programs can open their own screens, each with its own resolution and colors. Screens can be dragged down to reveal the ones behind them."),
+("Requester", "The Amiga term for a dialogue box, such as an About box or a file requester."),
+("Screen", "In AmigaOS, programs can open their own screens, each with its own resolution and colours. Screens can be dragged down to reveal the ones behind them."),
 ("Slow RAM", "Extra memory, such as the A500 trapdoor expansion, that sits on the custom chips' bus. Only the processor uses it, but it is no faster than Chip RAM."),
 ("Startup-sequence", "The script in the S: drawer that runs when an Amiga boots from disk."),
 ("Tracker", "A music program that arranges samples in a vertical grid of patterns. Ultimate Soundtracker on the Amiga started the format."),
@@ -563,8 +563,8 @@ MIDI instruments with sequencer software.
 CONTENT["hardware-video"] = ("Video outputs, screen modes, graphics cards and video production.", [
 ("What video outputs does the Amiga have?", """
 Every Amiga has a 23-pin analog RGB port, which gives the best picture on a compatible monitor. The
-A500 and A2000 also have a monochrome composite output. The A1000 has a color composite output, and
-the A600 and A1200 have color composite plus a built-in RF output for connecting to a TV. The A500
+A500 and A2000 also have a monochrome composite output. The A1000 has a colour composite output, and
+the A600 and A1200 have colour composite plus a built-in RF output for connecting to a TV. The A500
 can also use an RF modulator plugged into its RGB port.
 
 For connecting to modern screens, see <a href="hardware-general.html#how-do-i-connect-an-amiga-to-a-modern-monitor-or-tv">connecting
@@ -585,7 +585,7 @@ for other models it is an upgrade fitted inside the computer.
 """),
 ("What are graphics cards (RTG) on the Amiga?", """
 Graphics cards plug into the expansion slots of big-box Amigas and add high resolutions and many
-more colors than the built-in chipset. Software systems such as Picasso96 and CyberGraphX, often
+more colours than the built-in chipset. Software systems such as Picasso96 and CyberGraphX, often
 called RTG (retargetable graphics), let Workbench and programs use these cards.
 """),
 ("What is a genlock?", """
@@ -615,7 +615,7 @@ project, Terrible Fire's open-source accelerators and the Apollo Team's FPGA-bas
 """),
 ("Where can I look up a particular expansion card?", """
 The <a href="https://bigbookofamigahardware.com/">Big Book of Amiga Hardware</a> and the
-<a href="https://amiga.resource.cx/">Amiga Hardware Database</a> both catalog thousands of
+<a href="https://amiga.resource.cx/">Amiga Hardware Database</a> both catalogue thousands of
 expansion cards and peripherals, with photos and specifications.
 """),
 ])
