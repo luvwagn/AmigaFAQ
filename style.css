@@ -29,7 +29,7 @@ body {
   color: var(--black);
   font-family: var(--text-font);
   font-size: 15px;
-  line-height: 1.55;
+  line-height: 23px; /* whole pixels keep pixel-art gadgets on the grid */
 }
 
 /* Pixel font: no smoothing, no fake bold */
@@ -191,7 +191,7 @@ ul.tree a {
   color: var(--black);
   text-decoration: none;
   padding: 2px 6px;
-  line-height: 1.35;
+  line-height: 22px;
 }
 ul.tree li.drawer > a::before,
 ul.tree li.file > a::before {
@@ -207,19 +207,19 @@ ul.tree li.drawer.open > a::before { background-image: url("icons/drawer-open.sv
 ul.tree li.file > a::before { background-image: url("icons/project.svg"); background-position: 2px center; }
 ul.tree li.file { margin-top: 10px; }
 ul.tree ul.qs { padding-left: 22px; border-left: 1px dotted var(--black); margin-left: 12px; }
-ul.tree ul.qs a { font-family: var(--text-font); font-size: 13px; -webkit-font-smoothing: auto; }
+ul.tree ul.qs a { font-family: var(--text-font); font-size: 13px; line-height: 18px; -webkit-font-smoothing: auto; }
 ul.tree a:hover, ul.tree a:focus { background: var(--blue); color: var(--white); text-decoration: none; }
 ul.tree a.sel { background: var(--black); color: var(--white); }
 ul.tree a.sel::before { background-color: var(--chrome); box-shadow: 0 0 0 2px var(--chrome); }
 
 /* ---------- Content ---------- */
-p.intro { font-size: 16px; margin-top: 0; }
+p.intro { font-size: 16px; line-height: 25px; margin-top: 0; }
 .qa {
   background: var(--chrome);
   padding: 4px 16px 10px;
   margin: 16px 0;
 }
-.qa h3 { margin: 10px 0 6px; }
+.qa h3 { margin: 10px 0 6px; line-height: 20px; }
 .qa h3 a { color: var(--black); text-decoration: none; }
 .qa ul { list-style: none; padding-left: 0; margin-left: 0.5em; }
 .qa li { padding-left: 1.2em; text-indent: -1.2em; margin-bottom: 0.3em; }
@@ -309,7 +309,7 @@ details.model > summary {
   list-style: none;
   padding: 3px 6px 3px 26px;
   position: relative;
-  line-height: 1.45;
+  line-height: 22px;
 }
 details.model > summary::-webkit-details-marker { display: none; }
 /* small raised gadget with a +/- sign */
@@ -318,7 +318,7 @@ details.model > summary::before {
   position: absolute;
   left: 2px;
   /* centred on the first line: top padding + half the line height - half the box */
-  top: calc(3px + 0.725em - 8px);
+  top: 6px; /* 3px padding + half of the 22px line - half of the 16px box */
   width: 16px; height: 16px;
   box-sizing: border-box;
   border-style: solid;
