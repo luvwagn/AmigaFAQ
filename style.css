@@ -301,3 +301,56 @@ table.reqwin .pane {
    PNG first (widest support), then the original .cur. Hotspot is (4,5).
    Used everywhere, including over links. */
 html, body, *, a, a * { cursor: url("icons/amim.png?v=2") 4 5, url("icons/amim.cur"), default; }
+
+/* ---------- Model list: click a model to show its specs ---------- */
+.models { margin: 10px 0 4px; }
+details.model { margin: 0 0 4px; }
+details.model > summary {
+  list-style: none;
+  padding: 3px 6px 3px 26px;
+  position: relative;
+  line-height: 1.45;
+}
+details.model > summary::-webkit-details-marker { display: none; }
+/* small raised gadget with a +/- sign */
+details.model > summary::before {
+  content: "+";
+  position: absolute;
+  left: 2px; top: 5px;
+  width: 16px; height: 16px;
+  line-height: 13px;
+  text-align: center;
+  font-family: var(--topaz);
+  font-size: 16px;
+  background: var(--chrome);
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--white) var(--black) var(--black) var(--white);
+}
+details.model[open] > summary::before {
+  content: "-";
+  border-color: var(--black) var(--white) var(--white) var(--black);
+}
+details.model > summary:hover { background: var(--blue); color: var(--white); }
+table.specs {
+  margin: 4px 0 10px 26px;
+  border-collapse: collapse;
+  background: var(--screen);
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--black) var(--white) var(--white) var(--black);
+  font-size: 14px;
+}
+table.specs th {
+  font-family: var(--topaz);
+  font-size: 16px;
+  font-weight: normal;
+  -webkit-font-smoothing: none;
+  white-space: nowrap;
+  padding: 4px 14px 4px 10px;
+}
+table.specs td { padding: 4px 10px 4px 0; }
+@media (max-width: 720px) {
+  table.specs { margin-left: 0; }
+  table.specs th { white-space: normal; }
+}

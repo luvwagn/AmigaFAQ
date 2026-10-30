@@ -54,20 +54,10 @@ Some Amigas can be switched between modes, and emulators let you pick either one
 
 CONTENT["hardware"] = ("Models, chipsets, memory, video and upgrades.", [
 ("What Amiga models were made?", """
-The main Commodore models, with their release years, are:
+These are the main Commodore models, with their release years. Select a model to see its key
+specifications as shipped (many were later upgraded by their owners).
 
-<b>Amiga 1000</b> (1985) - the original, which loaded its Kickstart firmware from floppy disk.<br>
-<b>Amiga 500</b> (1987) - the best-selling home model.<br>
-<b>Amiga 2000</b> (1987) - a desktop "big box" with expansion slots.<br>
-<b>Amiga 3000</b> (1990) - a 68030-based workstation with the ECS chipset.<br>
-<b>CDTV</b> (1991) - a CD-based multimedia player built on Amiga hardware.<br>
-<b>Amiga 500 Plus</b> (1991) - an updated A500 with ECS and Kickstart 2.<br>
-<b>Amiga 3000T</b> (1991) - a tower version of the A3000, with more room for drives and Zorro III expansion cards.<br>
-<b>Amiga 600</b> (1992) - a compact model with IDE and PCMCIA.<br>
-<b>Amiga 1200</b> (1992) - the AGA home computer.<br>
-<b>Amiga 4000</b> (1992) - the AGA desktop flagship.<br>
-<b>CD32</b> (1993) - a 32-bit CD games console based on the A1200.<br>
-<b>Amiga 4000T</b> (1994) - a tower version of the A4000 with a 68040, built-in SCSI as well as IDE, and extra Zorro III slots. It was one of Commodore's last machines, and Escom later re-released it, including a 68060 version.
+{{MODELS}}
 """),
 ("What are OCS, ECS and AGA?", """
 These are the three generations of the Amiga custom chipset. <b>OCS</b> (Original Chip Set) shipped
@@ -290,4 +280,81 @@ kind permission of Stefan Reinauer.
 Amiga, AmigaOS and Workbench are trademarks of their respective owners. AmigaFAQ is an independent
 fan site and is not affiliated with any of them.
 """),
+]
+
+# Model list for the Hardware page. Specs are the standard configuration as shipped.
+# PAL machines run slightly slower than NTSC ones (7.09 vs 7.16 MHz for the 68000).
+MODELS = [
+("Amiga 1000", "1985", "the original, which loaded its Kickstart firmware from floppy disk.",
+ [("Form factor", "Desktop"),
+  ("CPU", "Motorola 68000 at 7.16 MHz (NTSC) / 7.09 MHz (PAL)"),
+  ("Chip RAM", "256 KB (512 KB with the front-panel expansion)"),
+  ("Chipset", "OCS"),
+  ("Hard drive interface", "n/a")]),
+("Amiga 500", "1987", "the best-selling home model.",
+ [("Form factor", "Wedge (computer in the keyboard)"),
+  ("CPU", "Motorola 68000 at 7.16 MHz (NTSC) / 7.09 MHz (PAL)"),
+  ("Chip RAM", "512 KB"),
+  ("Chipset", "OCS (some late units shipped with an ECS Agnus)"),
+  ("Hard drive interface", "n/a")]),
+("Amiga 2000", "1987", "a desktop \"big box\" with expansion slots.",
+ [("Form factor", "Desktop"),
+  ("CPU", "Motorola 68000 at 7.16 MHz (NTSC) / 7.09 MHz (PAL)"),
+  ("Chip RAM", "512 KB (1 MB on later revisions)"),
+  ("Chipset", "OCS (ECS on later revisions)"),
+  ("Hard drive interface", "None built in; added with a Zorro II card such as the A2091 (SCSI)")]),
+("Amiga 3000", "1990", "a 68030-based workstation with the ECS chipset.",
+ [("Form factor", "Desktop"),
+  ("CPU", "Motorola 68030 at 16 or 25 MHz"),
+  ("Chip RAM", "1 MB (up to 2 MB)"),
+  ("Chipset", "ECS"),
+  ("Hard drive interface", "SCSI (built in)")]),
+("CDTV", "1991", "a CD-based multimedia player built on Amiga hardware.",
+ [("Form factor", "Audio (hi-fi component style)"),
+  ("CPU", "Motorola 68000 at 7.16 MHz (NTSC) / 7.09 MHz (PAL)"),
+  ("Chip RAM", "1 MB"),
+  ("Chipset", "OCS (with the 1 MB ECS Agnus)"),
+  ("Hard drive interface", "n/a (CD-ROM drive)")]),
+("Amiga 500 Plus", "1991", "an updated A500 with ECS and Kickstart 2.",
+ [("Form factor", "Wedge (computer in the keyboard)"),
+  ("CPU", "Motorola 68000 at 7.16 MHz (NTSC) / 7.09 MHz (PAL)"),
+  ("Chip RAM", "1 MB"),
+  ("Chipset", "ECS"),
+  ("Hard drive interface", "n/a")]),
+("Amiga 3000T", "1991", "a tower version of the A3000, with more room for drives and Zorro III expansion cards.",
+ [("Form factor", "Tower"),
+  ("CPU", "Motorola 68030 at 25 MHz"),
+  ("Chip RAM", "1 MB (up to 2 MB)"),
+  ("Chipset", "ECS"),
+  ("Hard drive interface", "SCSI (built in)")]),
+("Amiga 600", "1992", "a compact model with IDE and PCMCIA.",
+ [("Form factor", "Wedge (compact, no numeric keypad)"),
+  ("CPU", "Motorola 68000 at 7.16 MHz (NTSC) / 7.09 MHz (PAL)"),
+  ("Chip RAM", "1 MB"),
+  ("Chipset", "ECS"),
+  ("Hard drive interface", "IDE (44-pin, for 2.5-inch drives)")]),
+("Amiga 1200", "1992", "the AGA home computer.",
+ [("Form factor", "Wedge (computer in the keyboard)"),
+  ("CPU", "Motorola 68EC020 at 14 MHz"),
+  ("Chip RAM", "2 MB"),
+  ("Chipset", "AGA"),
+  ("Hard drive interface", "IDE (44-pin, for 2.5-inch drives)")]),
+("Amiga 4000", "1992", "the AGA desktop flagship.",
+ [("Form factor", "Desktop"),
+  ("CPU", "Motorola 68040 at 25 MHz (A4000/040) or 68EC030 at 25 MHz (A4000/030)"),
+  ("Chip RAM", "2 MB"),
+  ("Chipset", "AGA"),
+  ("Hard drive interface", "IDE (40-pin, for 3.5-inch drives)")]),
+("CD32", "1993", "a 32-bit CD games console based on the A1200.",
+ [("Form factor", "Console"),
+  ("CPU", "Motorola 68EC020 at 14 MHz"),
+  ("Chip RAM", "2 MB"),
+  ("Chipset", "AGA"),
+  ("Hard drive interface", "n/a (CD-ROM drive)")]),
+("Amiga 4000T", "1994", "a tower version of the A4000, one of Commodore's last machines. Escom later re-released it, including a 68060 version.",
+ [("Form factor", "Tower"),
+  ("CPU", "Motorola 68040 at 25 MHz (Escom also offered a 68060 at 50 MHz)"),
+  ("Chip RAM", "2 MB"),
+  ("Chipset", "AGA"),
+  ("Hard drive interface", "SCSI and IDE (both built in)")]),
 ]

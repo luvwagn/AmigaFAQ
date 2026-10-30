@@ -121,8 +121,27 @@ Corrections and suggestions welcome on <a href="https://github.com/luvwagn/Amiga
            sidebar=window("Topics", sidebar(slug), "sidewin"),
            main=window(title if slug != "index" else "AmigaFAQ", body, "mainwin"))
 
+def models_html():
+    """Each model is a <details> disclosure: no JavaScript needed, and old
+    browsers that don't know the element simply show the specs expanded."""
+    out = ['<div class="models">']
+    for name, year, desc, specs in MODELS:
+        rows = "\n".join('<tr><th align="left" valign="top">%s</th><td valign="top">%s</td></tr>' % kv for kv in specs)
+        out.append('<details class="model">\n<summary><b>%s</b> (%s) - %s</summary>\n'
+                   '<table class="specs" cellspacing="0" cellpadding="3" border="0">\n%s\n</table>\n</details>'
+                   % (name, year, desc, rows))
+    out.append('</div>')
+    return "\n".join(out)
+
 def paras(text):
-    return "\n".join("<p>%s</p>" % p.strip() for p in text.strip().split("\n\n"))
+    out = []
+    for p in text.strip().split("\n\n"):
+        p = p.strip()
+        if p == "{{MODELS}}":
+            out.append(models_html())
+        else:
+            out.append("<p>%s</p>" % p)
+    return "\n".join(out)
 
 def qa_page(slug, title, intro, qas):
     items = ['<p class="intro">%s</p>' % intro]
