@@ -314,22 +314,27 @@ details.model > summary {
 details.model > summary::-webkit-details-marker { display: none; }
 /* small raised gadget with a +/- sign */
 details.model > summary::before {
-  content: "+";
+  content: "";
   position: absolute;
-  left: 2px; top: 5px;
+  left: 2px;
+  /* centred on the first line: top padding + half the line height - half the box */
+  top: calc(3px + 0.725em - 8px);
   width: 16px; height: 16px;
-  line-height: 13px;
-  text-align: center;
-  font-family: var(--topaz);
-  font-size: 16px;
-  background: var(--chrome);
+  box-sizing: border-box;
   border-style: solid;
   border-width: 2px;
   border-color: var(--white) var(--black) var(--black) var(--white);
+  /* plus sign drawn with two bars, exactly centred in the 12px interior */
+  background:
+    linear-gradient(var(--black), var(--black)) center / 8px 2px no-repeat,
+    linear-gradient(var(--black), var(--black)) center / 2px 8px no-repeat,
+    var(--chrome);
 }
 details.model[open] > summary::before {
-  content: "-";
   border-color: var(--black) var(--white) var(--white) var(--black);
+  background:
+    linear-gradient(var(--black), var(--black)) center / 8px 2px no-repeat,
+    var(--chrome);
 }
 details.model > summary:hover { background: var(--blue); color: var(--white); }
 table.specs {
