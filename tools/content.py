@@ -223,6 +223,9 @@ leading to a legal dispute with Atari. Commodore launched the first model, the A
 The Amiga 1000 was unveiled in July 1985 at a gala event at Lincoln Center in New York. In one of the
 best-remembered moments, artist Andy Warhol created a digital portrait of singer Debbie Harry live
 on stage using the new computer.
+
+Read more: <a href="https://computerhistory.org/blog/warhol-the-computer/">Warhol &amp; The Computer</a>
+(Computer History Museum).
 """),
 ("What was the Amiga used for?", """
 At home, especially in Europe, the Amiga was one of the leading games machines of the late 1980s and
