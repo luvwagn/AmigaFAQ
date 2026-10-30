@@ -67,7 +67,7 @@ td.titlebar {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.wtitle { padding: 0 6px; background: var(--wb-white); }
+.wtitle { padding: 0 6px; background: transparent; }
 .wtitle b { font-weight: normal; }
 td.winbody { padding: 14px 18px !important; border-left: 4px solid var(--wb-grey); }
 
