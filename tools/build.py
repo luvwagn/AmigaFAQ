@@ -139,6 +139,8 @@ def paras(text):
         p = p.strip()
         if p == "{{MODELS}}":
             out.append(models_html())
+        elif p.startswith("<ul") or p.startswith("<ol"):
+            out.append(p)
         else:
             out.append("<p>%s</p>" % p)
     return "\n".join(out)

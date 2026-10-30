@@ -239,6 +239,23 @@ company Escom, which itself went bankrupt in 1996, and later Gateway.
 Development of the operating system continued through other companies, and the community has kept
 the platform alive with new hardware, software and updated versions of AmigaOS.
 """),
+("Further reading: what are some good books on Amiga history?", """
+These books cover the Amiga's story from different angles:
+
+<ul>
+<li><b>The Future Was Here: The Commodore Amiga</b> by Jimmy Maher (MIT Press, 2012) - a thoughtful
+history of the hardware design, the culture around the machine, and why it mattered. Maher also
+covers the Amiga in his long-running blog, <a href="https://www.filfre.net">The Digital Antiquarian</a>.</li>
+<li><b>Commodore: The Amiga Years</b> by Brian Bagnall - a detailed, interview-driven account of the
+people and company politics behind the Amiga at Commodore.</li>
+<li><b>Commodore Amiga: a visual Commpendium</b> (Bitmap Books) - a large, beautifully designed art
+book of Amiga games and graphics.</li>
+<li><b>The Story of the Commodore Amiga in Pixels</b> by Chris Wilkins - a game-focused history built
+around developer interviews and screenshots.</li>
+<li><b>Freax: The Brief History of the Computer Demoscene</b> by Tamas Polgar - the story of the
+demoscene, in which the Amiga played a central part.</li>
+</ul>
+"""),
 ])
 
 ABOUT_INTRO = "AmigaFAQ is a free, community-minded collection of answers about the Commodore Amiga."
