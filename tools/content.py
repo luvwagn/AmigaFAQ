@@ -87,6 +87,21 @@ In the late 1990s, Phase 5's PowerUP accelerators, the Blizzard PPC for the A120
 PPC for the A3000 and A4000, added a PowerPC processor alongside a 68k one, so software written for
 PowerPC could run on classic Amigas. Later, PowerPC became the main processor for newer Amiga-compatible
 computers such as the AmigaOne range, which run AmigaOS 4.
+
+For more technical background on the 680x0 family:
+
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Motorola_68000_series">Motorola 68000 series</a> (Wikipedia) -
+an overview of the whole family, from the 68000 to the 68060, with the differences between each chip.</li>
+<li><a href="https://en.wikipedia.org/wiki/Motorola_68000">Motorola 68000</a> (Wikipedia) - the
+original chip's design, registers and instruction set in detail.</li>
+<li><a href="https://www.nxp.com/docs/en/reference-manual/M68000PRM.pdf">M68000 Family Programmer's
+Reference Manual</a> (NXP, PDF) - the official instruction set reference, from the company that
+took over Motorola's chip business.</li>
+<li><a href="https://thechipletter.substack.com/p/motorolas-68000-series-its-rise-in">Motorola's 68000
+Series: Its Rise in Ten Computers</a> (The Chip Letter) - the family's history through the computers
+that used it, including the Amiga.</li>
+</ul>
 """),
 ("How do I connect an Amiga to a modern monitor or TV?", """
 Amigas output 15kHz analog RGB through a 23-pin video port. Classic Commodore monitors such as the
