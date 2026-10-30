@@ -119,7 +119,7 @@ are versioned together, so Workbench 3.1 expects Kickstart 3.1. Many games boot 
 Kickstart and never load Workbench at all.
 """),
 ("Which AmigaOS versions exist?", """
-Commodore released versions 1.0 to 1.3 (1985-1988), 2.0 (1990), 3.0 (1992) and 3.1 (1994). After
+Commodore released versions 1.0 to 1.3 (1985-1988), 2.0 (1990), 3.0 (1992) and 3.1 (1993). After
 Commodore, other companies released 3.5 and 3.9, and later Hyperion Entertainment released 3.1.4 and
 3.2, which still run on classic 68k Amigas.
 
