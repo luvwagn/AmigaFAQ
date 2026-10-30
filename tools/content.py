@@ -23,7 +23,7 @@ larger, rarer and usually more expensive. See <a href="hardware.html">Hardware</
 At minimum: a power supply, a mouse, a way to connect a display, and some software. Original power
 supplies are now decades old, so many owners use a modern replacement built for the Amiga.
 
-The display is often the trickiest part. Amigas output a 15 kHz RGB signal that most modern monitors
+The display is often the trickiest part. Amigas output a 15kHz RGB signal that most modern monitors
 cannot show directly. See <a href="hardware.html#how-do-i-connect-an-amiga-to-a-modern-monitor-or-tv">connecting to a modern monitor</a>.
 """),
 ("What should I check on an old Amiga before switching it on?", """
@@ -44,8 +44,8 @@ You can also write real floppy disks from images using a USB floppy controller s
 connected to a PC.
 """),
 ("What are PAL and NTSC, and do they matter?", """
-PAL Amigas (sold in most of Europe and Australia) run their display at 50 Hz, and NTSC Amigas (sold
-in North America) at 60 Hz. Many European games were written for PAL and may run too fast, or have
+PAL Amigas (sold in most of Europe and Australia) run their display at 50Hz, and NTSC Amigas (sold
+in North America) at 60Hz. Many European games were written for PAL and may run too fast, or have
 the bottom of the screen cut off, on an NTSC machine.
 
 Some Amigas can be switched between modes, and emulators let you pick either one.
@@ -77,14 +77,14 @@ Adding Fast RAM is one of the most noticeable upgrades for an A500 or A1200.
 """),
 ("Which processors did Amigas use?", """
 All Amigas use Motorola 68000-family processors. The A500, A600 and A1000 use a 68000 at about
-7 MHz. The A1200 and CD32 use a 68EC020 at 14 MHz, the A3000 a 68030, and the A4000 either a 68EC030
+7MHz. The A1200 and CD32 use a 68EC020 at 14MHz, the A3000 a 68030, and the A4000 either a 68EC030
 or a 68040.
 
 Accelerator cards can add a faster 68030, 68040 or 68060. Some modern accelerators use FPGA or
 Raspberry Pi technology instead of an original Motorola chip.
 """),
 ("How do I connect an Amiga to a modern monitor or TV?", """
-Amigas output 15 kHz analog RGB through a 23-pin video port. Classic Commodore monitors such as the
+Amigas output 15kHz analog RGB through a 23-pin video port. Classic Commodore monitors such as the
 1084S display this directly, but most modern monitors and TVs do not.
 
 Common solutions are a <b>scan doubler or flicker fixer</b> (fitted inside the Amiga) or an external
@@ -93,8 +93,8 @@ but it is monochrome; the A600 and A1200 have color composite output, though the
 lower than RGB.
 """),
 ("What floppy disks does the Amiga use?", """
-Standard Amiga drives use 3.5-inch double-density disks, formatted to 880 KB, more than a PC fits on
-the same disk. High-density drives (in some A3000 and A4000 models) store 1.76 MB.
+Standard Amiga drives use 3.5-inch double-density disks, formatted to 880KB, more than a PC fits on
+the same disk. High-density drives (in some A3000 and A4000 models) store 1.76MB.
 
 From Workbench 2.1 onward, the CrossDOS tool lets an Amiga read and write PC-formatted disks.
 """),
@@ -283,78 +283,78 @@ fan site and is not affiliated with any of them.
 ]
 
 # Model list for the Hardware page. Specs are the standard configuration as shipped.
-# PAL machines run slightly slower than NTSC ones (7.09 vs 7.16 MHz for the 68000).
+# PAL machines run slightly slower than NTSC ones (7.09 vs 7.16MHz for the 68000).
 MODELS = [
 ("Amiga 1000", "1985", "the original, which loaded its Kickstart firmware from floppy disk.",
  [("Form factor", "Desktop"),
-  ("CPU", "Motorola 68000 at 7.16 MHz (NTSC) / 7.09 MHz (PAL)"),
-  ("Chip RAM", "256 KB (512 KB with the front-panel expansion)"),
+  ("CPU", "Motorola 68000 at 7.16MHz (NTSC) / 7.09MHz (PAL)"),
+  ("Chip RAM", "256KB (512KB with the front-panel expansion)"),
   ("Chipset", "OCS"),
   ("Hard drive interface", "n/a")]),
 ("Amiga 500", "1987", "the best-selling home model.",
  [("Form factor", "Wedge (computer in the keyboard)"),
-  ("CPU", "Motorola 68000 at 7.16 MHz (NTSC) / 7.09 MHz (PAL)"),
-  ("Chip RAM", "512 KB"),
+  ("CPU", "Motorola 68000 at 7.16MHz (NTSC) / 7.09MHz (PAL)"),
+  ("Chip RAM", "512KB"),
   ("Chipset", "OCS (some late units shipped with an ECS Agnus)"),
   ("Hard drive interface", "n/a")]),
 ("Amiga 2000", "1987", "a desktop \"big box\" with expansion slots.",
  [("Form factor", "Desktop"),
-  ("CPU", "Motorola 68000 at 7.16 MHz (NTSC) / 7.09 MHz (PAL)"),
-  ("Chip RAM", "512 KB (1 MB on later revisions)"),
+  ("CPU", "Motorola 68000 at 7.16MHz (NTSC) / 7.09MHz (PAL)"),
+  ("Chip RAM", "512KB (1MB on later revisions)"),
   ("Chipset", "OCS (ECS on later revisions)"),
   ("Hard drive interface", "None built in; added with a Zorro II card such as the A2091 (SCSI)")]),
 ("Amiga 3000", "1990", "a 68030-based workstation with the ECS chipset.",
  [("Form factor", "Desktop"),
-  ("CPU", "Motorola 68030 at 16 or 25 MHz"),
-  ("Chip RAM", "1 MB (up to 2 MB)"),
+  ("CPU", "Motorola 68030 at 16MHz or 25MHz"),
+  ("Chip RAM", "1MB (up to 2MB)"),
   ("Chipset", "ECS"),
   ("Hard drive interface", "SCSI (built in)")]),
 ("CDTV", "1991", "a CD-based multimedia player built on Amiga hardware.",
  [("Form factor", "Audio (hi-fi component style)"),
-  ("CPU", "Motorola 68000 at 7.16 MHz (NTSC) / 7.09 MHz (PAL)"),
-  ("Chip RAM", "1 MB"),
-  ("Chipset", "OCS (with the 1 MB ECS Agnus)"),
+  ("CPU", "Motorola 68000 at 7.16MHz (NTSC) / 7.09MHz (PAL)"),
+  ("Chip RAM", "1MB"),
+  ("Chipset", "OCS (with the 1MB ECS Agnus)"),
   ("Hard drive interface", "n/a (CD-ROM drive)")]),
 ("Amiga 500 Plus", "1991", "an updated A500 with ECS and Kickstart 2.",
  [("Form factor", "Wedge (computer in the keyboard)"),
-  ("CPU", "Motorola 68000 at 7.16 MHz (NTSC) / 7.09 MHz (PAL)"),
-  ("Chip RAM", "1 MB"),
+  ("CPU", "Motorola 68000 at 7.16MHz (NTSC) / 7.09MHz (PAL)"),
+  ("Chip RAM", "1MB"),
   ("Chipset", "ECS"),
   ("Hard drive interface", "n/a")]),
 ("Amiga 3000T", "1991", "a tower version of the A3000, with more room for drives and Zorro III expansion cards.",
  [("Form factor", "Tower"),
-  ("CPU", "Motorola 68030 at 25 MHz"),
-  ("Chip RAM", "1 MB (up to 2 MB)"),
+  ("CPU", "Motorola 68030 at 25MHz"),
+  ("Chip RAM", "1MB (up to 2MB)"),
   ("Chipset", "ECS"),
   ("Hard drive interface", "SCSI (built in)")]),
 ("Amiga 600", "1992", "a compact model with IDE and PCMCIA.",
  [("Form factor", "Wedge (compact, no numeric keypad)"),
-  ("CPU", "Motorola 68000 at 7.16 MHz (NTSC) / 7.09 MHz (PAL)"),
-  ("Chip RAM", "1 MB (up to 2 MB)"),
+  ("CPU", "Motorola 68000 at 7.16MHz (NTSC) / 7.09MHz (PAL)"),
+  ("Chip RAM", "1MB (up to 2MB)"),
   ("Chipset", "ECS"),
   ("Hard drive interface", "IDE (44-pin, for 2.5-inch drives)")]),
 ("Amiga 1200", "1992", "the AGA home computer.",
  [("Form factor", "Wedge (computer in the keyboard)"),
-  ("CPU", "Motorola 68EC020 at 14 MHz"),
-  ("Chip RAM", "2 MB"),
+  ("CPU", "Motorola 68EC020 at 14MHz"),
+  ("Chip RAM", "2MB"),
   ("Chipset", "AGA"),
   ("Hard drive interface", "IDE (44-pin, for 2.5-inch drives)")]),
 ("Amiga 4000", "1992", "the AGA desktop flagship.",
  [("Form factor", "Desktop"),
-  ("CPU", "Motorola 68040 at 25 MHz (A4000/040) or 68EC030 at 25 MHz (A4000/030)"),
-  ("Chip RAM", "2 MB"),
+  ("CPU", "Motorola 68040 at 25MHz (A4000/040) or 68EC030 at 25MHz (A4000/030)"),
+  ("Chip RAM", "2MB"),
   ("Chipset", "AGA"),
   ("Hard drive interface", "IDE (40-pin, for 3.5-inch drives)")]),
 ("CD32", "1993", "a 32-bit CD games console based on the A1200.",
  [("Form factor", "Console"),
-  ("CPU", "Motorola 68EC020 at 14 MHz"),
-  ("Chip RAM", "2 MB"),
+  ("CPU", "Motorola 68EC020 at 14MHz"),
+  ("Chip RAM", "2MB"),
   ("Chipset", "AGA"),
   ("Hard drive interface", "n/a (CD-ROM drive)")]),
 ("Amiga 4000T", "1994", "a tower version of the A4000, one of Commodore's last machines. Escom later re-released it, including a 68060 version.",
  [("Form factor", "Tower"),
-  ("CPU", "Motorola 68040 at 25 MHz (Escom also offered a 68060 at 50 MHz)"),
-  ("Chip RAM", "2 MB"),
+  ("CPU", "Motorola 68040 at 25MHz (Escom also offered a 68060 at 50MHz)"),
+  ("Chip RAM", "2MB"),
   ("Chipset", "AGA"),
   ("Hard drive interface", "SCSI and IDE (both built in)")]),
 ]
