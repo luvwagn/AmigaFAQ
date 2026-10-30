@@ -375,3 +375,81 @@ MODELS = [
   ("Chipset", "AGA"),
   ("Hard drive interface", "SCSI and IDE (both built in)")]),
 ]
+
+CONTENT["web-sites"] = ("Useful Amiga web sites for software, games, hardware, emulation and community.", [
+("Where can I download Amiga software?", """
+<ul>
+<li><a href="https://aminet.net/">Aminet</a> - the largest archive of freely distributable Amiga
+software, running since the early 1990s.</li>
+<li><a href="https://www.whdload.de/">WHDLoad</a> - the official home of WHDLoad, with installers for
+running floppy games and demos from a hard disk.</li>
+</ul>
+"""),
+("Where can I look up Amiga games?", """
+<ul>
+<li><a href="https://amiga.abime.net/">Hall of Light</a> - a very detailed database of Amiga games,
+with screenshots, credits and scanned manuals.</li>
+<li><a href="https://www.lemonamiga.com/">Lemon Amiga</a> - a popular game database with user
+reviews and ratings.</li>
+<li><a href="https://amr.abime.net/">Amiga Magazine Rack</a> - scans of classic Amiga magazines,
+cross-referenced with the Hall of Light.</li>
+<li><a href="https://www.amigalove.com/">AmigaLove</a> - in-depth reviews of classic games, plus
+articles and a friendly forum.</li>
+</ul>
+"""),
+("Where can I find demos and music?", """
+<ul>
+<li><a href="https://www.pouet.net/">Pouet</a> - the main database of demoscene productions,
+including thousands of Amiga demos.</li>
+<li><a href="https://amp.dascene.net/">Amiga Music Preservation</a> - an archive of Amiga music
+modules and the musicians who made them.</li>
+</ul>
+"""),
+("Where can I look up Amiga hardware?", """
+<ul>
+<li><a href="https://bigbookofamigahardware.com/">Big Book of Amiga Hardware</a> - a huge reference
+of Amiga computers, expansion cards, accelerators and peripherals, with photos and details.</li>
+<li><a href="https://wiki.amigaos.net/">AmigaOS Documentation Wiki</a> - developer and technical
+documentation for AmigaOS.</li>
+</ul>
+"""),
+("Where can I get Amiga emulators?", """
+<ul>
+<li><a href="https://www.winuae.net/">WinUAE</a> - the most accurate Amiga emulator, for Windows.</li>
+<li><a href="https://fs-uae.net/">FS-UAE</a> - an emulator for Windows, macOS and Linux.</li>
+<li><a href="https://amiberry.com/">Amiberry</a> - an emulator designed for Linux devices such as the
+Raspberry Pi.</li>
+<li><a href="https://github.com/dirkwhoffmann/vAmiga">vAmiga</a> - an accuracy-focused emulator for
+macOS.</li>
+<li><a href="https://www.amigaforever.com/">Amiga Forever</a> - a licensed package of Kickstart ROMs,
+Workbench and emulation software.</li>
+</ul>
+"""),
+("Where can I talk with other Amiga users?", """
+<ul>
+<li><a href="https://eab.abime.net/">English Amiga Board</a> - one of the largest and most active
+Amiga forums, covering hardware, software, games and emulation.</li>
+<li><a href="https://www.a1k.org/">A1K</a> - a large German-language Amiga community.</li>
+<li><a href="https://www.amiga-news.de/">amiga-news.de</a> - long-running Amiga news, in English and
+German.</li>
+</ul>
+"""),
+("Where can I get the current AmigaOS?", """
+<ul>
+<li><a href="https://www.hyperion-entertainment.com/">Hyperion Entertainment</a> - the developer of
+AmigaOS 3.2 for classic Amigas and AmigaOS 4 for PowerPC systems.</li>
+</ul>
+"""),
+("Which web sites work on a real Amiga web browser?", """
+Most modern sites are too heavy for classic Amiga browsers, and many need encryption they cannot
+handle. A few sites are built for old computers:
+
+<ul>
+<li><a href="http://frogfind.com/">FrogFind</a> - a search engine that turns web pages into simple
+text-only versions that vintage browsers can show.</li>
+<li><a href="http://68k.news/">68k.news</a> - a news site made for vintage computers and browsers.</li>
+<li><a href="http://amigafaq.org/">AmigaFAQ</a> - this site, which works over plain HTTP on classic
+Amiga browsers.</li>
+</ul>
+"""),
+])

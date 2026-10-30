@@ -17,6 +17,7 @@ TOPICS = [
     ("software", "Software"),
     ("emulation", "Emulation"),
     ("history", "History"),
+    ("web-sites", "Web Sites"),
 ]
 
 exec(open(os.path.join(HERE, "content.py")).read())
