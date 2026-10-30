@@ -88,9 +88,9 @@ Amigas output 15kHz analog RGB through a 23-pin video port. Classic Commodore mo
 1084S display this directly, but most modern monitors and TVs do not.
 
 Common solutions are a <b>scan doubler or flicker fixer</b> (fitted inside the Amiga) or an external
-<b>upscaler</b> that converts the RGB signal to VGA or HDMI. The A500 also has a composite output,
-but it is monochrome; the A600 and A1200 have color composite output, though the picture quality is
-lower than RGB.
+<b>upscaler</b> that converts the RGB signal to VGA or HDMI. The A500 and A2000 also have a
+composite output, but it is monochrome; the A1000, A600 and A1200 have color composite output, though
+the picture quality is lower than RGB.
 """),
 ("What floppy disks does the Amiga use?", """
 Standard Amiga drives use 3.5-inch double-density disks, formatted to 880KB, more than a PC fits on
@@ -563,9 +563,9 @@ MIDI instruments with sequencer software.
 CONTENT["hardware-video"] = ("Video outputs, screen modes, graphics cards and video production.", [
 ("What video outputs does the Amiga have?", """
 Every Amiga has a 23-pin analog RGB port, which gives the best picture on a compatible monitor. The
-A500 also has a monochrome composite output, while the A600 and A1200 have color composite and a
-built-in RF output for connecting to a TV. The A500 can also use an RF modulator plugged into its RGB
-port.
+A500 and A2000 also have a monochrome composite output. The A1000 has a color composite output, and
+the A600 and A1200 have color composite plus a built-in RF output for connecting to a TV. The A500
+can also use an RF modulator plugged into its RGB port.
 
 For connecting to modern screens, see <a href="hardware-general.html#how-do-i-connect-an-amiga-to-a-modern-monitor-or-tv">connecting
 to a modern monitor or TV</a>.
