@@ -1,0 +1,250 @@
+# AmigaFAQ content. ASCII only: use &amp; entities for special characters.
+CONTENT = {}
+
+CONTENT["getting-started"] = ("New to the Amiga, or coming back after many years? Start here.", [
+("What is the Amiga?", """
+The Amiga is a family of personal computers sold by Commodore from 1985 to 1994. Thanks to a set of
+custom chips that handled graphics, sound and memory access on their own, it could show more colors,
+play sampled stereo sound and multitask far beyond most home computers of its day.
+
+It became especially popular in Europe for games, and around the world for video, animation, music
+and the demoscene. A dedicated community still uses, repairs and develops for it today.
+"""),
+("Which Amiga model should I get?", """
+It depends on what you want to do. For classic games, the <b>Amiga 500</b> is the most compatible
+choice, since most late-1980s and early-1990s games were written for it.
+
+For the widest range of software and the most upgrade options, the <b>Amiga 1200</b> is the best
+all-rounder: it has the enhanced AGA graphics chipset, a built-in hard disk interface and a large
+range of modern accelerators. The big-box models (A2000, A3000, A4000) offer expansion slots but are
+larger, rarer and usually more expensive. See <a href="hardware.html">Hardware</a> for a model list.
+"""),
+("What do I need besides the computer itself?", """
+At minimum: a power supply, a mouse, a way to connect a display, and some software. Original power
+supplies are now decades old, so many owners use a modern replacement built for the Amiga.
+
+The display is often the trickiest part. Amigas output a 15 kHz RGB signal that most modern monitors
+cannot show directly. See <a href="hardware.html#how-do-i-connect-an-amiga-to-a-modern-monitor-or-tv">connecting to a modern monitor</a>.
+"""),
+("What should I check on an old Amiga before switching it on?", """
+Look for a leaking clock battery. The Amiga 500 trapdoor memory expansion (A501) and the big-box
+models have a small battery that can leak and corrode the board. If you find one, remove it before
+using the machine.
+
+Many later models (including the A600, A1200, A3000, A4000 and CD32) use small surface-mounted
+capacitors that can leak with age. Replacing them ("recapping") is a common and worthwhile repair.
+"""),
+("How do I get software onto a real Amiga?", """
+There are several options. A <b>Gotek</b> floppy emulator replaces the floppy drive and loads disk
+images (ADF files) from a USB stick. A <b>CompactFlash or SD card</b> on an IDE adapter can serve as
+a fast, silent hard drive on the A600, A1200 and A4000, and can be prepared on a modern PC using an
+emulator.
+
+You can also write real floppy disks from images using a USB floppy controller such as Greaseweazle
+connected to a PC.
+"""),
+("What are PAL and NTSC, and do they matter?", """
+PAL Amigas (sold in most of Europe and Australia) run their display at 50 Hz, and NTSC Amigas (sold
+in North America) at 60 Hz. Many European games were written for PAL and may run too fast, or have
+the bottom of the screen cut off, on an NTSC machine.
+
+Some Amigas can be switched between modes, and emulators let you pick either one.
+"""),
+])
+
+CONTENT["hardware"] = ("Models, chipsets, memory, video and upgrades.", [
+("What Amiga models were made?", """
+The main Commodore models, with their release years, are:
+
+<b>Amiga 1000</b> (1985) - the original, which loaded its Kickstart firmware from floppy disk.<br>
+<b>Amiga 500</b> (1987) - the best-selling home model.<br>
+<b>Amiga 2000</b> (1987) - a desktop "big box" with expansion slots.<br>
+<b>Amiga 3000</b> (1990) - a 68030-based workstation with the ECS chipset.<br>
+<b>CDTV</b> (1991) - a CD-based multimedia player built on Amiga hardware.<br>
+<b>Amiga 500 Plus</b> (1991) - an updated A500 with ECS and Kickstart 2.<br>
+<b>Amiga 600</b> (1992) - a compact model with IDE and PCMCIA.<br>
+<b>Amiga 1200</b> (1992) - the AGA home computer.<br>
+<b>Amiga 4000</b> (1992) - the AGA desktop flagship.<br>
+<b>CD32</b> (1993) - a 32-bit CD games console based on the A1200.
+"""),
+("What are OCS, ECS and AGA?", """
+These are the three generations of the Amiga custom chipset. <b>OCS</b> (Original Chip Set) shipped
+in the A1000, early A500s and A2000s. It can display up to 32 colors from a palette of 4,096, or all
+4,096 at once in the special HAM mode.
+
+<b>ECS</b> (Enhanced Chip Set) added more memory addressing and new screen modes, mainly useful for
+productivity. <b>AGA</b> (Advanced Graphics Architecture), in the A1200, A4000 and CD32, raised the
+palette to 16.8 million colors with up to 256 on screen at once (and far more in HAM8 mode).
+"""),
+("What is the difference between Chip RAM and Fast RAM?", """
+<b>Chip RAM</b> is memory the custom chips can reach directly, so it holds graphics and sound data.
+The processor has to share it with the chips. <b>Fast RAM</b> can only be used by the processor, so
+programs run faster from it because they never wait for the custom chips.
+
+Adding Fast RAM is one of the most noticeable upgrades for an A500 or A1200.
+"""),
+("Which processors did Amigas use?", """
+All Amigas use Motorola 68000-family processors. The A500, A600 and A1000 use a 68000 at about
+7 MHz. The A1200 and CD32 use a 68EC020 at 14 MHz, the A3000 a 68030, and the A4000 either a 68EC030
+or a 68040.
+
+Accelerator cards can add a faster 68030, 68040 or 68060. Some modern accelerators use FPGA or
+Raspberry Pi technology instead of an original Motorola chip.
+"""),
+("How do I connect an Amiga to a modern monitor or TV?", """
+Amigas output 15 kHz analog RGB through a 23-pin video port. Classic Commodore monitors such as the
+1084S display this directly, but most modern monitors and TVs do not.
+
+Common solutions are a <b>scan doubler or flicker fixer</b> (fitted inside the Amiga) or an external
+<b>upscaler</b> that converts the RGB signal to VGA or HDMI. The A500 also has a composite output,
+but it is monochrome; the A600 and A1200 have color composite output, though the picture quality is
+lower than RGB.
+"""),
+("What floppy disks does the Amiga use?", """
+Standard Amiga drives use 3.5-inch double-density disks, formatted to 880 KB, more than a PC fits on
+the same disk. High-density drives (in some A3000 and A4000 models) store 1.76 MB.
+
+From Workbench 2.1 onward, the CrossDOS tool lets an Amiga read and write PC-formatted disks.
+"""),
+("Can I still upgrade an Amiga today?", """
+Yes, and more options exist now than ever. The community produces memory expansions, accelerators,
+IDE and network adapters, floppy emulators, video upgrades and replacement parts such as power
+supplies and cases.
+
+Popular modern examples include Raspberry Pi based accelerators like the PiStorm, open-source
+accelerator designs, and FPGA-based boards. Check that an upgrade suits your exact model and board
+revision before buying.
+"""),
+])
+
+CONTENT["software"] = ("Kickstart, Workbench, AmigaOS versions and where to find programs.", [
+("What is the difference between Kickstart and Workbench?", """
+<b>Kickstart</b> is the core of the operating system, stored in ROM chips on the motherboard (except
+on the A1000, which loads it from disk). It handles booting, multitasking, graphics and hardware.
+
+<b>Workbench</b> is the graphical desktop and set of tools loaded from floppy or hard disk. The two
+are versioned together, so Workbench 3.1 expects Kickstart 3.1. Many games boot straight from
+Kickstart and never load Workbench at all.
+"""),
+("Which AmigaOS versions exist?", """
+Commodore released versions 1.0 to 1.3 (1985-1988), 2.0 (1990), 3.0 (1992) and 3.1 (1994). After
+Commodore, other companies released 3.5 and 3.9, and later Hyperion Entertainment released 3.1.4 and
+3.2, which still run on classic 68k Amigas.
+
+AmigaOS 4 is a separate line for PowerPC hardware. AROS and MorphOS are related operating systems
+inspired by AmigaOS.
+"""),
+("Which Kickstart version is best for games?", """
+Kickstart 1.3 is the most compatible with older games, since most titles from the 1980s and early
+1990s were written for it. Some of those games fail on Kickstart 2.0 and later.
+
+Using WHDLoad (see below) on a hard disk avoids most of these problems, and some owners fit a
+Kickstart switcher to choose between two ROMs.
+"""),
+("What is WHDLoad?", """
+WHDLoad is a system for installing floppy-based games and demos onto a hard disk. Each game gets a
+small installer and patch so it runs from the hard disk, quits back to Workbench, and works on
+faster Amigas that would otherwise break it. It is the standard way to play a large game collection
+on an A1200 or in an emulator.
+"""),
+("What are ADF, HDF and IPF files?", """
+An <b>ADF</b> (Amiga Disk File) is an image of an Amiga floppy disk. An <b>HDF</b> is an image of a
+hard disk or partition. An <b>IPF</b> is a preservation-quality floppy image that also captures
+original copy protection, so the game behaves exactly like the original disk. Emulators, floppy
+emulators and disk-writing tools all work with these formats.
+"""),
+("Where can I find Amiga software?", """
+<b>Aminet</b> (aminet.net) has been the main archive of freely distributable Amiga software since
+the early 1990s, with tens of thousands of programs, tools, demos and modules. Many developers have
+also released their old commercial games for free, and new Amiga games and tools are still being
+made and sold by the community today.
+"""),
+("Are Kickstart ROMs and Workbench disks free to download?", """
+No. Kickstart and Workbench are still copyrighted. You can buy licensed copies, for example through
+the Amiga Forever package or from resellers of the newer AmigaOS 3.x releases. Owning a real Amiga
+also lets you make your own copy of its ROM for use in an emulator.
+
+AROS provides a free, open-source replacement ROM that runs many, but not all, Amiga programs.
+"""),
+("Why is it called a Guru Meditation?", """
+"Guru Meditation" is the Amiga's name for a serious system error, shown as a flashing red box with an
+error code. The name comes from an in-house joke at Amiga: staff played a game on a board you stood
+on, the "Joyboard", in which you had to sit perfectly still like a meditating guru. An error code
+starting with 8 means the system cannot recover and must restart.
+"""),
+("How do I reset an Amiga or reach the boot menu?", """
+Hold down <b>Ctrl</b> together with both <b>Amiga</b> keys to reset the computer. On Kickstart 2.0
+and later, holding down <b>both mouse buttons</b> while the machine starts opens the Early Startup
+menu, where you can choose a boot drive or turn off features for better compatibility with old
+software.
+"""),
+])
+
+CONTENT["emulation"] = ("Running Amiga software on modern computers and devices.", [
+("Can I run Amiga software on a modern computer?", """
+Yes. Amiga emulators recreate the hardware in software, accurately enough to run nearly all games,
+demos and applications. You will need an emulator, a Kickstart ROM (or the free AROS replacement)
+and the software you want to run, usually as ADF or WHDLoad files.
+"""),
+("Which emulator should I use?", """
+<b>WinUAE</b> (Windows) is the most accurate and complete Amiga emulator and the reference that
+others are measured against. <b>FS-UAE</b> runs on Windows, macOS and Linux. <b>Amiberry</b> is
+designed for Linux devices such as the Raspberry Pi. <b>vAmiga</b> is a macOS emulator focused on
+accuracy for the A500, A1000 and A2000.
+
+Amiga emulation is also available inside RetroArch through a libretro core.
+"""),
+("Where do I get a Kickstart ROM for an emulator?", """
+The easiest legal route is a licensed package such as Amiga Forever, which includes ROMs and
+Workbench. If you own a real Amiga, you can also copy its ROM yourself with a transfer tool. AROS
+offers a free replacement ROM, which works well for many programs but is less compatible with
+games than the original.
+"""),
+("What is the A500 Mini?", """
+The A500 Mini is a small plug-and-play replica of the Amiga 500 released in 2022 by Retro Games Ltd.
+It connects by HDMI, comes with a mouse and gamepad and a selection of built-in games, and can load
+additional games from a USB stick. It runs on emulation rather than original Amiga hardware.
+"""),
+("Can an emulator help me with a real Amiga?", """
+Yes. Many owners use an emulator such as WinUAE to set up and install software onto a CompactFlash
+or SD card, then move the card into their real Amiga. Emulators are also handy for testing a game or
+setup before committing to it on original hardware.
+"""),
+])
+
+CONTENT["history"] = ("Where the Amiga came from and what happened to it.", [
+("Who created the Amiga?", """
+The Amiga began at a small California company founded in 1982, originally called Hi-Toro and soon
+renamed Amiga Corporation. Its chipset was designed by a team led by Jay Miner, who had earlier
+worked on Atari's home computer chips. The prototype was code-named "Lorraine".
+"""),
+("What does the name Amiga mean?", """
+"Amiga" is Spanish for a female friend. The founders wanted a friendly name, and it also conveniently
+appeared ahead of Apple and Atari in alphabetical listings.
+"""),
+("How did Commodore end up owning the Amiga?", """
+Amiga Corporation ran short of money while developing its chipset and took funding from Atari, which
+came with strings attached. In 1984 Commodore stepped in and bought Amiga Corporation outright,
+leading to a legal dispute with Atari. Commodore launched the first model, the Amiga 1000, in 1985.
+"""),
+("How was the Amiga launched?", """
+The Amiga 1000 was unveiled in July 1985 at a gala event at Lincoln Center in New York. In one of the
+best-remembered moments, artist Andy Warhol created a digital portrait of singer Debbie Harry live
+on stage using the new computer.
+"""),
+("What was the Amiga used for?", """
+At home, especially in Europe, the Amiga was one of the leading games machines of the late 1980s and
+early 1990s, with studios such as Psygnosis, DMA Design, Team17 and Sensible Software making
+landmark titles. It also became a creative tool: NewTek's Video Toaster made the Amiga 2000 a
+low-cost video production system used in television, including for visual effects in early
+Babylon 5. The Amiga was also central to the demoscene and to tracker music.
+"""),
+("What happened to Commodore?", """
+Commodore struggled in the early 1990s as PC and console competition grew, and it filed for
+bankruptcy in 1994. The Amiga rights then passed through several owners, starting with the German
+company Escom, which itself went bankrupt in 1996, and later Gateway.
+
+Development of the operating system continued through other companies, and the community has kept
+the platform alive with new hardware, software and updated versions of AmigaOS.
+"""),
+])

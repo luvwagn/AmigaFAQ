@@ -1,49 +1,167 @@
+/* AmigaFAQ - Workbench 3.1 inspired style.
+   Palette: the classic four Workbench colors. The HTML also carries bgcolor
+   attributes, so old Amiga browsers get the grey look without this file. */
 :root {
-  --bg: #f4f4f0;
-  --fg: #1d1d1d;
-  --muted: #555;
-  --accent: #0055aa;      /* classic Workbench blue */
-  --accent-2: #ff8800;    /* Workbench orange */
-  --card: #ffffff;
-  --border: #d6d6d0;
+  --wb-grey: #aaaaaa;
+  --wb-black: #000000;
+  --wb-white: #ffffff;
+  --wb-blue: #6688bb;
+  --chrome-font: "Topaz", "Topaz New", "Courier New", Courier, monospace;
+  --text-font: Verdana, Geneva, "DejaVu Sans", Helvetica, Arial, sans-serif;
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #121418;
-    --fg: #e8e8e8;
-    --muted: #a0a0a0;
-    --accent: #4d8fe0;
-    --card: #1b1e24;
-    --border: #2c3038;
-  }
-}
+
 * { box-sizing: border-box; }
+html { background: var(--wb-grey); }
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  line-height: 1.6;
-  background: var(--bg);
-  color: var(--fg);
+  background: var(--wb-grey);
+  color: var(--wb-black);
+  font-family: var(--text-font);
+  font-size: 15px;
+  line-height: 1.55;
 }
-.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
-header {
-  background: var(--accent);
-  color: #fff;
-  border-bottom: 4px solid var(--accent-2);
-  padding: 32px 0 24px;
+
+/* Raised and recessed bevels, the Workbench 3D look */
+.raised, .win, .btn, .gad {
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--wb-white) var(--wb-black) var(--wb-black) var(--wb-white);
 }
-header h1 { margin: 0; font-size: 2.2rem; letter-spacing: 0.02em; }
-.tag { margin: 4px 0 0; opacity: 0.9; }
-main { padding: 24px 16px 48px; }
-h2 { border-bottom: 2px solid var(--border); padding-bottom: 4px; }
-details {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 12px 16px;
-  margin: 10px 0;
+
+/* Screen title bar across the top */
+.screenbar {
+  background: var(--wb-white);
+  color: var(--wb-black);
+  font-family: var(--chrome-font);
+  font-size: 14px;
+  padding: 3px 10px;
+  border-bottom: 2px solid var(--wb-black);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-summary { cursor: pointer; font-weight: 600; }
-details p { margin: 10px 0 0; color: var(--muted); }
-a { color: var(--accent); }
-footer { border-top: 1px solid var(--border); color: var(--muted); font-size: 0.9rem; padding: 16px 0; }
+
+/* Two-column layout table */
+table.layout { border-collapse: separate; border-spacing: 10px; table-layout: fixed; }
+td.side { width: 270px; }
+
+/* Windows */
+table.win {
+  border-collapse: collapse;
+  background: var(--wb-grey);
+  box-shadow: 2px 2px 0 var(--wb-black);
+}
+table.win > tbody > tr > td, table.win > tr > td { border: 0; padding: 0; }
+td.titlebar {
+  position: relative;
+  height: 22px;
+  background: var(--wb-blue);
+  /* the faint stripe of an active Workbench title bar */
+  background-image: repeating-linear-gradient(to bottom, rgba(255,255,255,0.10) 0 1px, transparent 1px 3px);
+  border-bottom: 1px solid var(--wb-black) !important;
+  font-family: var(--chrome-font);
+  font-size: 14px;
+  padding: 0 34px !important;
+  line-height: 22px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wtitle { padding: 0 6px; background: var(--wb-white); }
+.wtitle b { font-weight: normal; }
+td.winbody { padding: 14px 18px !important; border-left: 4px solid var(--wb-grey); }
+
+/* Title bar gadgets (decorative) */
+.gad {
+  position: absolute;
+  top: 0;
+  width: 26px;
+  height: 21px;
+  background: var(--wb-grey);
+}
+.gad.close { left: 0; }
+.gad.close i {
+  position: absolute; left: 9px; top: 6px; width: 7px; height: 8px;
+  background: var(--wb-white); border: 1px solid var(--wb-black);
+}
+.gad.depth { right: 0; }
+.gad.depth i, .gad.depth b {
+  position: absolute; width: 11px; height: 8px; border: 1px solid var(--wb-black);
+}
+.gad.depth i { left: 5px; top: 4px; background: var(--wb-grey); }
+.gad.depth b { left: 10px; top: 8px; background: var(--wb-white); }
+
+/* Sidebar tree */
+ul.tree, ul.tree ul { list-style: none; margin: 0; padding: 0; }
+ul.tree ul { padding-left: 16px; }
+ul.tree li { margin: 3px 0; }
+ul.tree a {
+  display: block;
+  color: var(--wb-black);
+  text-decoration: none;
+  padding: 2px 6px;
+  font-family: var(--chrome-font);
+  font-size: 14px;
+  line-height: 1.35;
+}
+ul.tree li.drawer > a::before {
+  content: "";
+  display: inline-block;
+  width: 12px; height: 9px;
+  margin-right: 7px;
+  vertical-align: -1px;
+  background: var(--wb-blue);
+  border: 1px solid var(--wb-black);
+  box-shadow: inset 2px 2px 0 var(--wb-white);
+}
+ul.tree li.drawer.open > a::before { background: var(--wb-white); }
+ul.tree ul.qs { padding-left: 22px; border-left: 1px dotted var(--wb-black); margin-left: 12px; }
+ul.tree ul.qs a { font-family: var(--text-font); font-size: 13px; }
+ul.tree a:hover, ul.tree a:focus { background: var(--wb-blue); color: var(--wb-white); }
+ul.tree a.sel { background: var(--wb-black); color: var(--wb-white); }
+
+/* Content */
+.content a { color: var(--wb-black); }
+.content a:hover { background: var(--wb-blue); color: var(--wb-white); }
+p.intro { font-size: 16px; margin-top: 0; }
+.qa {
+  background: var(--wb-grey);
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--wb-black) var(--wb-white) var(--wb-white) var(--wb-black);
+  padding: 4px 16px 10px;
+  margin: 16px 0;
+}
+.qa h3 {
+  font-family: var(--chrome-font);
+  font-size: 16px;
+  margin: 10px 0 6px;
+}
+.qa h3 a { text-decoration: none; }
+p.up { text-align: right; margin: 6px 0 0; }
+a.btn {
+  display: inline-block;
+  font-family: var(--chrome-font);
+  font-size: 13px;
+  text-decoration: none;
+  background: var(--wb-grey);
+  color: var(--wb-black);
+  padding: 1px 12px;
+}
+a.btn:active { border-color: var(--wb-black) var(--wb-white) var(--wb-white) var(--wb-black); background: var(--wb-blue); }
+p.note { font-size: 13px; font-style: italic; }
+
+.foot { padding: 4px 20px 20px; font-size: 13px; }
+.foot a { color: var(--wb-black); }
+
+/* Phones: stack the sidebar above the content */
+@media (max-width: 720px) {
+  table.layout, table.layout > tbody, table.layout > tbody > tr, table.layout td.side, table.layout td.content {
+    display: block;
+    width: 100% !important;
+  }
+  table.layout { border-spacing: 0; padding: 8px; }
+  td.side { margin-bottom: 12px; }
+  td.winbody { padding: 12px !important; border-left: 0; }
+  .foot { padding: 4px 16px 16px; }
+}

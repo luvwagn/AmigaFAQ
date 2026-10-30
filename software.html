@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Software - AmigaFAQ</title>
+<meta name="description" content="Answers to frequently asked questions about the Commodore Amiga.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body bgcolor="#AAAAAA" text="#000000" link="#000000" vlink="#000000">
+<a name="top" id="top"></a>
+<div class="screenbar"><b>AmigaFAQ</b> &nbsp; Frequently asked questions about the Commodore Amiga</div>
+<table class="layout" width="100%" cellspacing="8" cellpadding="0" border="0">
+<tr>
+<td class="side" width="250" valign="top">
+<table class="win sidewin" width="100%" cellspacing="0" cellpadding="0" border="1" bgcolor="#AAAAAA">
+<tr><td class="titlebar" bgcolor="#6688BB"><span class="gad close" aria-hidden="true"><i></i></span><span class="wtitle"><font color="#000000"><b>Topics</b></font></span><span class="gad depth" aria-hidden="true"><i></i><b></b></span></td></tr>
+<tr><td class="winbody">
+<ul class="tree">
+<li class="drawer"><a href="index.html">AmigaFAQ</a></li>
+<li><ul>
+<li class="drawer"><a href="getting-started.html">Getting Started</a>
+</li>
+<li class="drawer"><a href="hardware.html">Hardware</a>
+</li>
+<li class="drawer open"><a href="software.html" class="sel">Software</a>
+<ul class="qs">
+<li><a href="#what-is-the-difference-between-kickstart-and-workbench">What is the difference between Kickstart and Workbench?</a></li>
+<li><a href="#which-amigaos-versions-exist">Which AmigaOS versions exist?</a></li>
+<li><a href="#which-kickstart-version-is-best-for-games">Which Kickstart version is best for games?</a></li>
+<li><a href="#what-is-whdload">What is WHDLoad?</a></li>
+<li><a href="#what-are-adf-hdf-and-ipf-files">What are ADF, HDF and IPF files?</a></li>
+<li><a href="#where-can-i-find-amiga-software">Where can I find Amiga software?</a></li>
+<li><a href="#are-kickstart-roms-and-workbench-disks-free-to-download">Are Kickstart ROMs and Workbench disks free to download?</a></li>
+<li><a href="#why-is-it-called-a-guru-meditation">Why is it called a Guru Meditation?</a></li>
+<li><a href="#how-do-i-reset-an-amiga-or-reach-the-boot-menu">How do I reset an Amiga or reach the boot menu?</a></li>
+</ul>
+</li>
+<li class="drawer"><a href="emulation.html">Emulation</a>
+</li>
+<li class="drawer"><a href="history.html">History</a>
+</li>
+</ul></li></ul>
+</td></tr>
+</table>
+</td>
+<td class="content" valign="top">
+<table class="win mainwin" width="100%" cellspacing="0" cellpadding="0" border="1" bgcolor="#AAAAAA">
+<tr><td class="titlebar" bgcolor="#6688BB"><span class="gad close" aria-hidden="true"><i></i></span><span class="wtitle"><font color="#000000"><b>Software</b></font></span><span class="gad depth" aria-hidden="true"><i></i><b></b></span></td></tr>
+<tr><td class="winbody">
+<p class="intro">Kickstart, Workbench, AmigaOS versions and where to find programs.</p>
+<div class="qa">
+<h3><a name="what-is-the-difference-between-kickstart-and-workbench" id="what-is-the-difference-between-kickstart-and-workbench">What is the difference between Kickstart and Workbench?</a></h3>
+<p><b>Kickstart</b> is the core of the operating system, stored in ROM chips on the motherboard (except
+on the A1000, which loads it from disk). It handles booting, multitasking, graphics and hardware.</p>
+<p><b>Workbench</b> is the graphical desktop and set of tools loaded from floppy or hard disk. The two
+are versioned together, so Workbench 3.1 expects Kickstart 3.1. Many games boot straight from
+Kickstart and never load Workbench at all.</p>
+<p class="up"><a href="#top" class="btn">Top</a></p>
+</div>
+<div class="qa">
+<h3><a name="which-amigaos-versions-exist" id="which-amigaos-versions-exist">Which AmigaOS versions exist?</a></h3>
+<p>Commodore released versions 1.0 to 1.3 (1985-1988), 2.0 (1990), 3.0 (1992) and 3.1 (1994). After
+Commodore, other companies released 3.5 and 3.9, and later Hyperion Entertainment released 3.1.4 and
+3.2, which still run on classic 68k Amigas.</p>
+<p>AmigaOS 4 is a separate line for PowerPC hardware. AROS and MorphOS are related operating systems
+inspired by AmigaOS.</p>
+<p class="up"><a href="#top" class="btn">Top</a></p>
+</div>
+<div class="qa">
+<h3><a name="which-kickstart-version-is-best-for-games" id="which-kickstart-version-is-best-for-games">Which Kickstart version is best for games?</a></h3>
+<p>Kickstart 1.3 is the most compatible with older games, since most titles from the 1980s and early
+1990s were written for it. Some of those games fail on Kickstart 2.0 and later.</p>
+<p>Using WHDLoad (see below) on a hard disk avoids most of these problems, and some owners fit a
+Kickstart switcher to choose between two ROMs.</p>
+<p class="up"><a href="#top" class="btn">Top</a></p>
+</div>
+<div class="qa">
+<h3><a name="what-is-whdload" id="what-is-whdload">What is WHDLoad?</a></h3>
+<p>WHDLoad is a system for installing floppy-based games and demos onto a hard disk. Each game gets a
+small installer and patch so it runs from the hard disk, quits back to Workbench, and works on
+faster Amigas that would otherwise break it. It is the standard way to play a large game collection
+on an A1200 or in an emulator.</p>
+<p class="up"><a href="#top" class="btn">Top</a></p>
+</div>
+<div class="qa">
+<h3><a name="what-are-adf-hdf-and-ipf-files" id="what-are-adf-hdf-and-ipf-files">What are ADF, HDF and IPF files?</a></h3>
+<p>An <b>ADF</b> (Amiga Disk File) is an image of an Amiga floppy disk. An <b>HDF</b> is an image of a
+hard disk or partition. An <b>IPF</b> is a preservation-quality floppy image that also captures
+original copy protection, so the game behaves exactly like the original disk. Emulators, floppy
+emulators and disk-writing tools all work with these formats.</p>
+<p class="up"><a href="#top" class="btn">Top</a></p>
+</div>
+<div class="qa">
+<h3><a name="where-can-i-find-amiga-software" id="where-can-i-find-amiga-software">Where can I find Amiga software?</a></h3>
+<p><b>Aminet</b> (aminet.net) has been the main archive of freely distributable Amiga software since
+the early 1990s, with tens of thousands of programs, tools, demos and modules. Many developers have
+also released their old commercial games for free, and new Amiga games and tools are still being
+made and sold by the community today.</p>
+<p class="up"><a href="#top" class="btn">Top</a></p>
+</div>
+<div class="qa">
+<h3><a name="are-kickstart-roms-and-workbench-disks-free-to-download" id="are-kickstart-roms-and-workbench-disks-free-to-download">Are Kickstart ROMs and Workbench disks free to download?</a></h3>
+<p>No. Kickstart and Workbench are still copyrighted. You can buy licensed copies, for example through
+the Amiga Forever package or from resellers of the newer AmigaOS 3.x releases. Owning a real Amiga
+also lets you make your own copy of its ROM for use in an emulator.</p>
+<p>AROS provides a free, open-source replacement ROM that runs many, but not all, Amiga programs.</p>
+<p class="up"><a href="#top" class="btn">Top</a></p>
+</div>
+<div class="qa">
+<h3><a name="why-is-it-called-a-guru-meditation" id="why-is-it-called-a-guru-meditation">Why is it called a Guru Meditation?</a></h3>
+<p>"Guru Meditation" is the Amiga's name for a serious system error, shown as a flashing red box with an
+error code. The name comes from an in-house joke at Amiga: staff played a game on a board you stood
+on, the "Joyboard", in which you had to sit perfectly still like a meditating guru. An error code
+starting with 8 means the system cannot recover and must restart.</p>
+<p class="up"><a href="#top" class="btn">Top</a></p>
+</div>
+<div class="qa">
+<h3><a name="how-do-i-reset-an-amiga-or-reach-the-boot-menu" id="how-do-i-reset-an-amiga-or-reach-the-boot-menu">How do I reset an Amiga or reach the boot menu?</a></h3>
+<p>Hold down <b>Ctrl</b> together with both <b>Amiga</b> keys to reset the computer. On Kickstart 2.0
+and later, holding down <b>both mouse buttons</b> while the machine starts opens the Early Startup
+menu, where you can choose a boot drive or turn off features for better compatibility with old
+software.</p>
+<p class="up"><a href="#top" class="btn">Top</a></p>
+</div>
+</td></tr>
+</table>
+</td>
+</tr>
+</table>
+<div class="foot">
+<p>&copy; 2026 AmigaFAQ. Content licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a>.
+Corrections and suggestions welcome on <a href="https://github.com/luvwagn/AmigaFAQ">GitHub</a>.</p>
+</div>
+</body>
+</html>
