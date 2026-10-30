@@ -13,7 +13,7 @@
   --wb-black: #000000;
   --wb-white: #ffffff;
   --wb-blue: #6688bb;
-  --chrome-font: "Topaz", "Topaz New", "Courier New", Courier, monospace;
+  --chrome-font: var(--topaz);
   --topaz: "Topaz WB", "Courier New", Courier, monospace;
   --text-font: Verdana, Geneva, "DejaVu Sans", Helvetica, Arial, sans-serif;
 }
@@ -114,7 +114,7 @@ ul.tree a {
   text-decoration: none;
   padding: 2px 6px;
   font-family: var(--chrome-font);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.35;
 }
 ul.tree li.drawer > a::before {
@@ -155,7 +155,7 @@ p.up { text-align: right; margin: 6px 0 0; }
 a.btn {
   display: inline-block;
   font-family: var(--chrome-font);
-  font-size: 13px;
+  font-size: 16px;
   text-decoration: none;
   background: var(--wb-grey);
   color: var(--wb-black);
@@ -180,4 +180,5 @@ p.note { font-size: 13px; font-style: italic; }
 }
 
 /* Topaz has no bold weight; faux-bold smears the pixels */
-.screenbar b, td.titlebar b { font-weight: normal; }
+.screenbar b, td.titlebar b, .qa h3 { font-weight: normal; }
+.screenbar, td.titlebar, ul.tree a, .qa h3, a.btn { -webkit-font-smoothing: none; font-smooth: never; }
