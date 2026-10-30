@@ -82,6 +82,11 @@ or a 68040.
 
 Accelerator cards can add a faster 68030, 68040 or 68060. Some modern accelerators use FPGA or
 Raspberry Pi technology instead of an original Motorola chip.
+
+In the late 1990s, Phase 5's PowerUP accelerators, the Blizzard PPC for the A1200 and the CyberStorm
+PPC for the A3000 and A4000, added a PowerPC processor alongside a 68k one, so software written for
+PowerPC could run on classic Amigas. Later, PowerPC became the main processor for newer Amiga-compatible
+computers such as the AmigaOne range, which run AmigaOS 4.
 """),
 ("How do I connect an Amiga to a modern monitor or TV?", """
 Amigas output 15kHz analog RGB through a 23-pin video port. Classic Commodore monitors such as the
