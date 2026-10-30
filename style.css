@@ -38,19 +38,22 @@ body {
 
 /* Screen title bar across the top */
 .screenbar {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  align-items: center;
   background: var(--wb-white);
   color: var(--wb-black);
   font-family: var(--topaz);
   font-size: 16px;
   line-height: 18px;
-  padding: 2px 10px;
+  padding: 0 10px 0 0;
   -webkit-font-smoothing: none;
   font-smooth: never;
   border-bottom: 2px solid var(--wb-black);
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
+.tagline { overflow: hidden; text-overflow: ellipsis; min-width: 0; }
 
 /* Two-column layout table */
 table.layout { border-collapse: separate; border-spacing: 10px; table-layout: fixed; }
@@ -191,3 +194,54 @@ ul.tree a.sel::before { background-color: var(--wb-grey); box-shadow: 0 0 0 2px 
 /* Trademark mark and footnote */
 sup.tm { font-family: var(--topaz); font-size: 8px; line-height: 0; vertical-align: 6px; margin-left: 1px; }
 .foot p.tmnote { font-size: 12px; margin-top: 6px; }
+
+/* ---- Screen menu (CSS only) ----
+   Hidden with :not() so browsers too old to open it (CSS1-era Amiga
+   browsers) never hide it: they just show the About link inline. */
+.menu { position: relative; display: inline-block; cursor: default; outline: none; }
+.mtitle { display: inline-block; padding: 2px 10px; }
+.menu:not(.never) .mitems {
+  display: none;
+  position: absolute;
+  left: 0; top: 100%;
+  min-width: 190px;
+  background: var(--wb-white);
+  border: 2px solid var(--wb-black);
+  padding: 3px 0;
+  box-shadow: 2px 2px 0 var(--wb-black);
+}
+.menu:hover .mitems, .menu:focus-within .mitems { display: block; }
+.menu:hover .mtitle, .menu:focus-within .mtitle { background: var(--wb-black); color: var(--wb-white); }
+.mitems a { display: block; padding: 2px 12px; color: var(--wb-black); text-decoration: none; }
+.mitems a:hover, .mitems a:focus { background: var(--wb-black); color: var(--wb-white); outline: none; }
+
+/* ---- About requester (CSS only, opened with :target) ---- */
+.requester { margin: 16px 20px 24px; max-width: 460px; }
+.requester:not(:target) { display: none; }
+.requester:target {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  margin: 0;
+  max-width: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 14vh 16px 0;
+}
+.req-backdrop { display: none; }
+.requester:target .req-backdrop { display: block; position: absolute; inset: 0; }
+table.reqwin { position: relative; max-width: 440px; }
+.reqtext {
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--wb-black) var(--wb-white) var(--wb-white) var(--wb-black);
+  padding: 4px 14px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+.reqtext p { margin: 8px 0; }
+.reqbtns a.btn { min-width: 80px; text-align: center; padding: 3px 14px; }
+a.gad { display: block; }
+.reqtext, .reqbtns a.btn { font-family: var(--topaz); font-size: 16px; -webkit-font-smoothing: none; font-smooth: never; }
+.reqtext b { font-weight: normal; }

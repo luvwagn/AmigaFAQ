@@ -57,6 +57,27 @@ def sidebar(current):
     lines.append('</ul>')
     return "\n".join(lines)
 
+# About requester. CSS-only (opened with :target). Placed at the end of the
+# page so browsers without modern CSS simply show it as an About box there.
+REQUESTER = """<div id="about-req" class="requester">
+<a class="req-backdrop" href="#close" aria-label="Close"></a>
+<table class="win reqwin" width="100%%" cellspacing="0" cellpadding="0" border="1" bgcolor="#AAAAAA">
+<tr><td class="titlebar" bgcolor="#6688BB"><a class="gad close" href="#close" aria-label="Close"><i></i></a><span class="wtitle"><font color="#000000"><b>About AmigaFAQ</b></font></span>%(depth)s</td></tr>
+<tr><td class="winbody">
+<div class="reqtext">
+<p><b>AmigaFAQ</b></p>
+<p>Frequently asked questions about the Commodore Amiga.</p>
+<p>A tribute to the AmigaOS 3.1 look and feel, made with plain HTML and CSS so it works on classic Amiga browsers too.</p>
+<p>Content licensed under CC BY-SA 4.0.</p>
+</div>
+<table class="reqbtns" width="100%%" cellspacing="0" cellpadding="0" border="0"><tr>
+<td align="left"><a href="#close" class="btn">OK</a></td>
+<td align="right"><a href="about.html" class="btn">More...</a></td>
+</tr></table>
+</td></tr>
+</table>
+</div>""" % dict(depth=GADGETS_R)
+
 def page(slug, title, body):
     full_title = "AmigaFAQ" if slug == "index" else "%s - AmigaFAQ" % title
     return """<!DOCTYPE html>
@@ -71,7 +92,7 @@ def page(slug, title, body):
 </head>
 <body bgcolor="#AAAAAA" text="#000000" link="#000000" vlink="#000000">
 <a name="top" id="top"></a>
-<div class="screenbar"><b>AmigaFAQ</b> &nbsp; Frequently asked questions about the Commodore Amiga<sup class="tm">TM</sup></div>
+<div class="screenbar"><span class="menu" tabindex="0"><span class="mtitle"><b>AmigaFAQ</b></span><span class="mitems"> <a href="#about-req">About...</a> </span></span> &nbsp; <span class="tagline">Frequently asked questions about the Commodore Amiga<sup class="tm">TM</sup></span></div>
 <table class="layout" width="100%%" cellspacing="8" cellpadding="0" border="0">
 <tr>
 <td class="side" width="250" valign="top">
@@ -87,9 +108,10 @@ def page(slug, title, body):
 Corrections and suggestions welcome on <a href="https://github.com/luvwagn/AmigaFAQ">GitHub</a>.</p>
 <p class="tmnote">Amiga, the Boing Ball logo, the slanted A logo, and the checkmark logo are trademarks of Amiga Corporation and may be registered internationally.</p>
 </div>
+%(requester)s
 </body>
 </html>
-""" % dict(full_title=full_title, css_ver=CSS_VER,
+""" % dict(full_title=full_title, css_ver=CSS_VER, requester=REQUESTER,
            sidebar=window("Topics", sidebar(slug), "sidewin"),
            main=window(title if slug != "index" else "AmigaFAQ", body, "mainwin"))
 
