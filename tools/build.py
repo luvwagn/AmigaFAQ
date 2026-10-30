@@ -76,7 +76,6 @@ REQUESTER = """<div id="about-req" class="requester">
 <div class="reqtext">
 <p>AmigaFAQ</p>
 <p>Frequently asked questions about the Commodore Amiga.</p>
-<p>A tribute to the AmigaOS 3.1 look and feel, made with plain HTML and CSS so it works on classic Amiga browsers too.</p>
 <p>Content licensed under CC BY-SA 4.0.</p>
 </div>
 <table class="reqbtns" width="100%" cellspacing="0" cellpadding="0" border="0"><tr>
