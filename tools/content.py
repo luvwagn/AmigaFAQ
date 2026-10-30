@@ -248,3 +248,41 @@ Development of the operating system continued through other companies, and the c
 the platform alive with new hardware, software and updated versions of AmigaOS.
 """),
 ])
+
+ABOUT_INTRO = "AmigaFAQ is a free, community-minded collection of answers about the Commodore Amiga."
+
+ABOUT = [
+("What is this site?", """
+AmigaFAQ gathers clear, practical answers to the questions people most often ask about the Amiga:
+choosing and caring for hardware, understanding the software, running Amiga programs today, and the
+history of the platform. It aims to be a friendly first stop for newcomers and returning owners alike.
+"""),
+("Why does it look like Workbench?", """
+The design is a tribute to AmigaOS 3.1 Workbench, with its grey screen, blue title bars and raised
+3D gadgets. Underneath, the pages are kept deliberately simple, using plain HTML and a table layout,
+so they can be read on real Amiga web browsers such as AWeb and IBrowse as well as on modern
+computers and phones.
+
+The site is available over plain HTTP as well as HTTPS, so older machines that cannot handle modern
+encryption can still reach it.
+"""),
+("Can I help or suggest a correction?", """
+Yes, please. Suggestions, corrections and new questions are welcome through the project's
+<a href="https://github.com/luvwagn/AmigaFAQ">GitHub repository</a>, where you can open an issue
+or propose a change.
+"""),
+("Can I reuse the content?", """
+Yes. The text of this site is licensed under the
+<a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">Creative Commons
+Attribution-ShareAlike 4.0</a> license. You may copy, adapt and share it, including commercially, as
+long as you credit AmigaFAQ with a link to amigafaq.org and share your version under the same license.
+"""),
+("Credits", """
+Titles and headings use the Topaz typeface, as recreated in TrueType form by dMG/t!s^dS! in the
+<a href="https://github.com/rewtnull/amigafonts">Multi Platform Amiga Fonts</a> collection, released
+under the GNU GPL with font exception. Topaz is (c) Amiga Inc.
+
+Amiga, AmigaOS and Workbench are trademarks of their respective owners. AmigaFAQ is an independent
+fan site and is not affiliated with any of them.
+"""),
+]

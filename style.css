@@ -182,3 +182,16 @@ p.note { font-size: 13px; font-style: italic; }
 /* Topaz has no bold weight; faux-bold smears the pixels */
 .screenbar b, td.titlebar b, .qa h3 { font-weight: normal; }
 .screenbar, td.titlebar, ul.tree a, .qa h3, a.btn { -webkit-font-smoothing: none; font-smooth: never; }
+
+/* "Project" icon for plain entries such as About */
+ul.tree li.file > a::before {
+  content: "";
+  display: inline-block;
+  width: 9px; height: 11px;
+  margin-right: 7px;
+  vertical-align: -1px;
+  background: var(--wb-white);
+  border: 1px solid var(--wb-black);
+  box-shadow: inset -3px 0 0 var(--wb-blue);
+}
+ul.tree li.file { margin-top: 10px; }

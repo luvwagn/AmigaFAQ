@@ -51,7 +51,10 @@ def sidebar(current):
                 lines.append('<li>%s</li>' % item("#" + anchor(q), q, False))
             lines.append('</ul>')
         lines.append('</li>')
-    lines.append('</ul></li></ul>')
+    lines.append('</ul></li>')
+    # Always the bottom-most entry, at the same level as "AmigaFAQ"
+    lines.append('<li class="file">%s</li>' % item("about.html", "About AmigaFAQ", current == "about"))
+    lines.append('</ul>')
     return "\n".join(lines)
 
 def page(slug, title, body):
@@ -119,4 +122,10 @@ for slug, title in TOPICS:
                  % (slug, title, intro, sample, slug, len(qas)))
 parts.append('<p class="note">This site is deliberately simple so it can be read on real Amiga web browsers as well as modern ones.</p>')
 write("index.html", page("index", "Home", "\n".join(parts)))
+
+# About page
+about = []
+for heading, text in ABOUT:
+    about.append('<div class="qa">\n<h3>%s</h3>\n%s\n</div>' % (heading, paras(text)))
+write("about.html", page("about", "About AmigaFAQ", '<p class="intro">%s</p>\n%s' % (ABOUT_INTRO, "\n".join(about))))
 print("built", len(TOPICS) + 1, "pages;", sum(len(CONTENT[s][1]) for s, _ in TOPICS), "questions")
