@@ -66,6 +66,7 @@ def page(slug, title, body):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>%(full_title)s</title>
 <meta name="description" content="Answers to frequently asked questions about the Commodore Amiga.">
+<link rel="preload" href="fonts/topaz-a1200.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="style.css?v=%(css_ver)s">
 </head>
 <body bgcolor="#AAAAAA" text="#000000" link="#000000" vlink="#000000">
