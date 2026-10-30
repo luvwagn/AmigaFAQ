@@ -62,10 +62,12 @@ The main Commodore models, with their release years, are:
 <b>Amiga 3000</b> (1990) - a 68030-based workstation with the ECS chipset.<br>
 <b>CDTV</b> (1991) - a CD-based multimedia player built on Amiga hardware.<br>
 <b>Amiga 500 Plus</b> (1991) - an updated A500 with ECS and Kickstart 2.<br>
+<b>Amiga 3000T</b> (1991) - a tower version of the A3000, with more room for drives and Zorro III expansion cards.<br>
 <b>Amiga 600</b> (1992) - a compact model with IDE and PCMCIA.<br>
 <b>Amiga 1200</b> (1992) - the AGA home computer.<br>
 <b>Amiga 4000</b> (1992) - the AGA desktop flagship.<br>
-<b>CD32</b> (1993) - a 32-bit CD games console based on the A1200.
+<b>CD32</b> (1993) - a 32-bit CD games console based on the A1200.<br>
+<b>Amiga 4000T</b> (1994) - a tower version of the A4000 with a 68040, built-in SCSI as well as IDE, and extra Zorro III slots. It was one of Commodore's last machines, and Escom later re-released it, including a 68060 version.
 """),
 ("What are OCS, ECS and AGA?", """
 These are the three generations of the Amiga custom chipset. <b>OCS</b> (Original Chip Set) shipped
