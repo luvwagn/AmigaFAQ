@@ -187,3 +187,7 @@ p.note { font-size: 13px; font-style: italic; }
 ul.tree li.file { margin-top: 10px; }
 /* keep icons visible on the black selected row */
 ul.tree a.sel::before { background-color: var(--wb-grey); box-shadow: 0 0 0 2px var(--wb-grey); }
+
+/* Trademark mark and footnote */
+sup.tm { font-family: var(--topaz); font-size: 8px; line-height: 0; vertical-align: 6px; margin-left: 1px; }
+.foot p.tmnote { font-size: 12px; margin-top: 6px; }

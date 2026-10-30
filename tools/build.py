@@ -71,7 +71,7 @@ def page(slug, title, body):
 </head>
 <body bgcolor="#AAAAAA" text="#000000" link="#000000" vlink="#000000">
 <a name="top" id="top"></a>
-<div class="screenbar"><b>AmigaFAQ</b> &nbsp; Frequently asked questions about the Commodore Amiga</div>
+<div class="screenbar"><b>AmigaFAQ</b> &nbsp; Frequently asked questions about the Commodore Amiga<sup class="tm">TM</sup></div>
 <table class="layout" width="100%%" cellspacing="8" cellpadding="0" border="0">
 <tr>
 <td class="side" width="250" valign="top">
@@ -85,6 +85,7 @@ def page(slug, title, body):
 <div class="foot">
 <p>&copy; 2026 AmigaFAQ. Content licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a>.
 Corrections and suggestions welcome on <a href="https://github.com/luvwagn/AmigaFAQ">GitHub</a>.</p>
+<p class="tmnote">Amiga, the Boing Ball logo, the slanted A logo, and the checkmark logo are trademarks of Amiga Corporation and may be registered internationally.</p>
 </div>
 </body>
 </html>
