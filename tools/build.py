@@ -13,10 +13,10 @@ CSS_VER = hashlib.md5(open(os.path.join(OUT, "style.css"), "rb").read()).hexdige
 
 TOPICS = [
     ("getting-started", "Getting Started"),
+    ("history", "History"),
     ("hardware", "Hardware"),
     ("software", "Software"),
     ("emulation", "Emulation"),
-    ("history", "History"),
     ("web-sites", "Web Sites"),
     ("glossary", "Glossary"),
 ]
