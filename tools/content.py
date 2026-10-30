@@ -282,6 +282,9 @@ Titles and headings use the Topaz typeface, as recreated in TrueType form by dMG
 <a href="https://github.com/rewtnull/amigafonts">Multi Platform Amiga Fonts</a> collection, released
 under the GNU GPL with font exception. Topaz is (c) Amiga Inc.
 
+The mouse pointer comes from <a href="https://dkb-amiga.com">dkb-amiga.com</a> and is used with the
+kind permission of Stefan Reinauer.
+
 Amiga, AmigaOS and Workbench are trademarks of their respective owners. AmigaFAQ is an independent
 fan site and is not affiliated with any of them.
 """),

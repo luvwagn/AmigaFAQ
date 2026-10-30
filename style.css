@@ -295,3 +295,10 @@ table.reqwin .pane {
   .tagline { text-align: left; padding: 0 8px; }
   .foot { padding: 4px 16px 16px; }
 }
+
+/* ---------- Mouse pointer ----------
+   From dkb-amiga.com, used with permission of Stefan Reinauer.
+   PNG first (widest support), then the original .cur. Hotspot is (4,5).
+   As on dkb-amiga.com, links show the normal hand pointer. */
+html, body, * { cursor: url("icons/amim.png") 4 5, url("icons/amim.cur"), default; }
+a, a * { cursor: pointer; }
