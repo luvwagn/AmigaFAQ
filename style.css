@@ -245,3 +245,8 @@ table.reqwin { position: relative; max-width: 440px; }
 a.gad { display: block; }
 .reqtext, .reqbtns a.btn { font-family: var(--topaz); font-size: 16px; -webkit-font-smoothing: none; font-smooth: never; }
 .reqtext b { font-weight: normal; }
+
+/* Center the tagline across the full width; the menu (about 84px wide)
+   stays top-left, so pad the right side by the same amount. */
+.tagline { flex: 1; text-align: center; padding-right: 84px; }
+@media (max-width: 720px) { .tagline { padding-right: 0; text-align: left; } }
