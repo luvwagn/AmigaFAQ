@@ -24,16 +24,26 @@ exec(open(os.path.join(HERE, "content.py")).read())
 def anchor(q):
     return re.sub(r"[^a-z0-9]+", "-", q.lower()).strip("-")[:60]
 
-GADGETS_L = '<span class="gad close" aria-hidden="true"><i></i></span>'
-GADGETS_R = '<span class="gad depth" aria-hidden="true"><i></i><b></b></span>'
+def titlebar(title, close_href=None):
+    """Title bar with close, depth and zoom gadgets (decorative, except the
+    requester's close gadget, which is a real link)."""
+    if close_href:
+        close = '<a class="gad close" href="%s" aria-label="Close"><i></i></a>' % close_href
+    else:
+        close = '<span class="gad close" aria-hidden="true"><i></i></span>'
+    return ('<td class="titlebar" bgcolor="#6688BB"><span class="tb">%s'
+            '<span class="wtitle"><font color="#000000"><b>%s</b></font></span>'
+            '<span class="gad depth" aria-hidden="true"><i></i><b></b></span>'
+            '<span class="gad zoom" aria-hidden="true"><i></i><b></b></span>'
+            '</span></td>') % (close, title)
 
-def window(title, inner, cls=""):
-    return """<table class="win %s" width="100%%" cellspacing="0" cellpadding="0" border="1" bgcolor="#AAAAAA">
-<tr><td class="titlebar" bgcolor="#6688BB">%s<span class="wtitle"><font color="#000000"><b>%s</b></font></span>%s</td></tr>
-<tr><td class="winbody">
+def window(title, inner, cls="", close_href=None):
+    return """<table class="win %s" width="100%%" cellspacing="0" cellpadding="0" border="1" bgcolor="#CCCCCC">
+<tr>%s</tr>
+<tr><td class="winbody"><div class="frame"><div class="pane">
 %s
-</td></tr>
-</table>""" % (cls, GADGETS_L, title, GADGETS_R, inner)
+</div></div></td></tr>
+</table>""" % (cls, titlebar(title, close_href), inner)
 
 def sidebar(current):
     def item(href, label, active):
@@ -61,22 +71,19 @@ def sidebar(current):
 # page so browsers without modern CSS simply show it as an About box there.
 REQUESTER = """<div id="about-req" class="requester">
 <a class="req-backdrop" href="#close" aria-label="Close"></a>
-<table class="win reqwin" width="100%%" cellspacing="0" cellpadding="0" border="1" bgcolor="#AAAAAA">
-<tr><td class="titlebar" bgcolor="#6688BB"><a class="gad close" href="#close" aria-label="Close"><i></i></a><span class="wtitle"><font color="#000000"><b>About AmigaFAQ</b></font></span>%(depth)s</td></tr>
-<tr><td class="winbody">
+%s
+</div>""" % window("About AmigaFAQ", """<div class="reqbody">
 <div class="reqtext">
-<p><b>AmigaFAQ</b></p>
+<p>AmigaFAQ</p>
 <p>Frequently asked questions about the Commodore Amiga.</p>
 <p>A tribute to the AmigaOS 3.1 look and feel, made with plain HTML and CSS so it works on classic Amiga browsers too.</p>
 <p>Content licensed under CC BY-SA 4.0.</p>
 </div>
-<table class="reqbtns" width="100%%" cellspacing="0" cellpadding="0" border="0"><tr>
+<table class="reqbtns" width="100%" cellspacing="0" cellpadding="0" border="0"><tr>
 <td align="left"><a href="#close" class="btn">OK</a></td>
 <td align="right"><a href="about.html" class="btn">More...</a></td>
 </tr></table>
-</td></tr>
-</table>
-</div>""" % dict(depth=GADGETS_R)
+</div>""", "reqwin", "#close")
 
 def page(slug, title, body):
     full_title = "AmigaFAQ" if slug == "index" else "%s - AmigaFAQ" % title
@@ -90,9 +97,9 @@ def page(slug, title, body):
 <link rel="preload" href="fonts/topaz-a1200.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="style.css?v=%(css_ver)s">
 </head>
-<body bgcolor="#AAAAAA" text="#000000" link="#000000" vlink="#000000">
+<body bgcolor="#B2B2B2" text="#000000" link="#0055AA" vlink="#0055AA">
 <a name="top" id="top"></a>
-<div class="screenbar"><span class="menu" tabindex="0"><span class="mtitle"><b>AmigaFAQ</b></span><span class="mitems"> <a href="#about-req">About...</a> </span></span> <span class="tagline">Frequently asked questions about the Commodore Amiga<sup class="tm">TM</sup></span></div>
+<div class="screenbar"><span class="menu" tabindex="0"><span class="mtitle"><b>AmigaFAQ</b></span><span class="mitems"> <a href="#about-req">About...</a> </span></span> <span class="tagline">Frequently asked questions about the Commodore Amiga<sup class="tm">TM</sup></span><a class="gad depth scrdepth" href="#top" title="Back to top" aria-label="Back to top"><i></i><b></b></a></div>
 <table class="layout" width="100%%" cellspacing="8" cellpadding="0" border="0">
 <tr>
 <td class="side" width="250" valign="top">

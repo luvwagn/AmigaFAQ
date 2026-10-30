@@ -1,6 +1,7 @@
 /* AmigaFAQ - Workbench 3.1 inspired style.
-   Palette: the classic four Workbench colors. The HTML also carries bgcolor
-   attributes, so old Amiga browsers get the grey look without this file. */
+   The HTML also carries bgcolor attributes and a table layout, so old Amiga
+   browsers get the grey two-column look without this file. */
+
 /* Topaz (Workbench 3.x / A1200 version), see fonts/README.md for license */
 @font-face {
   font-family: "Topaz WB";
@@ -9,115 +10,187 @@
 }
 
 :root {
-  --wb-grey: #aaaaaa;
-  --wb-black: #000000;
-  --wb-white: #ffffff;
-  --wb-blue: #6688bb;
-  --chrome-font: var(--topaz);
+  --screen: #b2b2b2;   /* screen and window contents */
+  --chrome: #cccccc;   /* window frames, gadgets, buttons, text boxes */
+  --black: #000000;
+  --white: #ffffff;
+  --blue: #6688bb;     /* title bars, highlights */
+  --link: #0055aa;
   --topaz: "Topaz WB", "Courier New", Courier, monospace;
   --text-font: Verdana, Geneva, "DejaVu Sans", Helvetica, Arial, sans-serif;
+  --bar-h: 26px;
 }
 
 * { box-sizing: border-box; }
-html { background: var(--wb-grey); }
+html { background: var(--screen); }
 body {
   margin: 0;
-  background: var(--wb-grey);
-  color: var(--wb-black);
+  background: var(--screen);
+  color: var(--black);
   font-family: var(--text-font);
   font-size: 15px;
   line-height: 1.55;
 }
 
-/* Raised and recessed bevels, the Workbench 3D look */
-.raised, .win, .btn, .gad {
+/* Pixel font: no smoothing, no fake bold */
+.screenbar, td.titlebar, ul.tree a, .qa h3, a.btn, .reqtext, .mitems a {
+  font-family: var(--topaz);
+  font-size: 16px;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+}
+.screenbar b, td.titlebar b, .qa h3 { font-weight: normal; }
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---------- Bevels ---------- */
+/* raised: light top-left, dark bottom-right; recessed: the reverse */
+.raised, table.win, a.btn {
   border-style: solid;
-  border-width: 1px;
-  border-color: var(--wb-white) var(--wb-black) var(--wb-black) var(--wb-white);
+  border-width: 2px;
+  border-color: var(--white) var(--black) var(--black) var(--white);
+}
+.recessed, .qa, .reqtext {
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--black) var(--white) var(--white) var(--black);
 }
 
-/* Screen title bar across the top */
+/* ---------- Screen title bar ---------- */
 .screenbar {
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 20;
   display: flex;
-  align-items: center;
-  background: var(--wb-white);
-  color: var(--wb-black);
-  font-family: var(--topaz);
-  font-size: 16px;
-  line-height: 18px;
-  padding: 0 10px 0 0;
-  -webkit-font-smoothing: none;
-  font-smooth: never;
-  border-bottom: 2px solid var(--wb-black);
+  align-items: stretch;
+  height: var(--bar-h);
+  line-height: calc(var(--bar-h) - 2px);
+  background: var(--white);
+  color: var(--black);
+  border-bottom: 2px solid var(--black);
   white-space: nowrap;
 }
-.tagline { overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.tagline {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  /* menu is 96px, depth gadget 30px: pad so the text centers on the page */
+  padding: 0 74px 0 8px;
+}
+sup.tm { font-family: var(--topaz); font-size: 8px; line-height: 0; vertical-align: 6px; margin-left: 1px; }
 
-/* Two-column layout table */
-table.layout { border-collapse: separate; border-spacing: 10px; table-layout: fixed; }
-td.side { width: 270px; }
+/* Screen menu (CSS only). Hidden with :not() so browsers too old to open
+   it never hide it: they just show the About link inline. */
+.menu { position: relative; display: block; cursor: default; outline: none; width: 96px; flex: none; }
+.mtitle { display: block; padding: 0 10px; }
+.menu:hover .mtitle, .menu:focus-within .mtitle { background: var(--black); color: var(--white); }
+.menu:not(.never) .mitems {
+  display: none;
+  position: absolute;
+  left: 0; top: 100%;
+  min-width: 190px;
+  background: var(--white);
+  border-style: solid;
+  border-color: var(--black);
+  border-width: 1px 2px 2px 1px;
+  padding: 2px 0;
+  line-height: 1.6;
+}
+.menu:hover .mitems, .menu:focus-within .mitems { display: block; }
+.mitems a { display: block; padding: 1px 12px; color: var(--black); text-decoration: none; }
+.mitems a:hover, .mitems a:focus { background: var(--blue); color: var(--white); outline: none; text-decoration: none; }
 
-/* Windows */
+/* Screen depth gadget at the right end of the bar (back to top) */
+.screenbar a.scrdepth {
+  position: relative;
+  flex: none;
+  width: 30px;
+  background: var(--chrome);
+  border-left: 2px solid var(--black);
+}
+
+/* ---------- Layout ---------- */
+table.layout { border-collapse: separate; border-spacing: 12px; table-layout: fixed; }
+td.side { width: 280px; }
+
+/* ---------- Windows ---------- */
 table.win {
-  border-collapse: collapse;
-  background: var(--wb-grey);
-  box-shadow: 2px 2px 0 var(--wb-black);
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--chrome);
 }
 table.win > tbody > tr > td, table.win > tr > td { border: 0; padding: 0; }
+
 td.titlebar {
-  position: relative;
-  height: 22px;
-  background: var(--wb-blue);
-  /* the faint stripe of an active Workbench title bar */
-  background-image: repeating-linear-gradient(to bottom, rgba(255,255,255,0.10) 0 1px, transparent 1px 3px);
-  border-bottom: 1px solid var(--wb-black) !important;
-  font-family: var(--topaz);
-  font-size: 16px;
-  -webkit-font-smoothing: none;
-  font-smooth: never;
-  padding: 0 34px !important;
-  line-height: 22px;
+  height: var(--bar-h);
+  background: var(--blue);
+  border-bottom: 2px solid var(--black) !important;
+  color: var(--black);
+}
+.tb { display: flex; align-items: stretch; height: calc(var(--bar-h) - 2px); }
+.wtitle {
+  flex: 1;
+  min-width: 0;
+  padding: 0 8px;
+  line-height: calc(var(--bar-h) - 2px);
+  border-left: 1px solid var(--white);
+  border-right: 1px solid var(--black);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.wtitle { padding: 0 6px; background: transparent; }
-.wtitle b { font-weight: normal; }
-td.winbody { padding: 14px 18px !important; border-left: 4px solid var(--wb-grey); }
 
-/* Title bar gadgets (decorative) */
+/* Gadgets: drawn with borders, each in its own box with divider lines */
 .gad {
-  position: absolute;
-  top: 0;
-  width: 26px;
-  height: 21px;
-  background: var(--wb-grey);
+  position: relative;
+  display: block;
+  flex: none;
+  width: 28px;
+  background: var(--blue);
 }
-.gad.close { left: 0; }
+.gad.close { border-right: 1px solid var(--black); }
 .gad.close i {
-  position: absolute; left: 9px; top: 6px; width: 7px; height: 8px;
-  background: var(--wb-white); border: 1px solid var(--wb-black);
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 9px; height: 12px;
+  margin: -6px 0 0 -4px;
+  background: var(--white);
+  border: 2px solid var(--black);
 }
-.gad.depth { right: 0; }
-.gad.depth i, .gad.depth b {
-  position: absolute; width: 11px; height: 8px; border: 1px solid var(--wb-black);
-}
-.gad.depth i { left: 5px; top: 4px; background: var(--wb-grey); }
-.gad.depth b { left: 10px; top: 8px; background: var(--wb-white); }
+.gad.depth { border-left: 1px solid var(--white); border-right: 1px solid var(--black); }
+.gad.zoom { border-left: 1px solid var(--white); }
+.gad i, .gad b { position: absolute; border: 2px solid var(--black); box-sizing: border-box; }
+.gad.depth i { left: 5px; top: 4px; width: 14px; height: 11px; background: var(--chrome); }
+.gad.depth b { left: 10px; top: 9px; width: 13px; height: 11px; background: var(--white); }
+.gad.zoom i { left: 5px; top: 4px; width: 17px; height: 15px; background: var(--chrome); }
+.gad.zoom b { left: 5px; top: 4px; width: 9px; height: 8px; background: var(--white); }
+.screenbar .gad.depth i { top: 4px; }
+.screenbar .gad.depth b { top: 9px; }
+a.gad:active { background: var(--black); }
 
-/* Sidebar tree */
+/* Window frame: a blue border, then an inset edge, then the contents */
+td.winbody { padding: 0 !important; }
+.frame { border: 2px solid var(--blue); border-top: 0; }
+.pane {
+  border-style: solid;
+  border-width: 0 2px 2px 2px;
+  border-color: var(--black) var(--white) var(--white) var(--black);
+  background: var(--screen);
+  padding: 14px 18px;
+}
+
+/* ---------- Sidebar tree ---------- */
 ul.tree, ul.tree ul { list-style: none; margin: 0; padding: 0; }
 ul.tree ul { padding-left: 16px; }
 ul.tree li { margin: 3px 0; }
 ul.tree a {
   display: block;
-  color: var(--wb-black);
+  color: var(--black);
   text-decoration: none;
   padding: 2px 6px;
-  font-family: var(--chrome-font);
-  font-size: 16px;
   line-height: 1.35;
 }
 ul.tree li.drawer > a::before,
@@ -132,90 +205,47 @@ ul.tree li.file > a::before {
 }
 ul.tree li.drawer.open > a::before { background-image: url("icons/drawer-open.svg"); }
 ul.tree li.file > a::before { background-image: url("icons/project.svg"); background-position: 2px center; }
-ul.tree ul.qs { padding-left: 22px; border-left: 1px dotted var(--wb-black); margin-left: 12px; }
-ul.tree ul.qs a { font-family: var(--text-font); font-size: 13px; }
-ul.tree a:hover, ul.tree a:focus { background: var(--wb-blue); color: var(--wb-white); }
-ul.tree a.sel { background: var(--wb-black); color: var(--wb-white); }
+ul.tree li.file { margin-top: 10px; }
+ul.tree ul.qs { padding-left: 22px; border-left: 1px dotted var(--black); margin-left: 12px; }
+ul.tree ul.qs a { font-family: var(--text-font); font-size: 13px; -webkit-font-smoothing: auto; }
+ul.tree a:hover, ul.tree a:focus { background: var(--blue); color: var(--white); text-decoration: none; }
+ul.tree a.sel { background: var(--black); color: var(--white); }
+ul.tree a.sel::before { background-color: var(--chrome); box-shadow: 0 0 0 2px var(--chrome); }
 
-/* Content */
-.content a { color: var(--wb-black); }
-.content a:hover { background: var(--wb-blue); color: var(--wb-white); }
+/* ---------- Content ---------- */
 p.intro { font-size: 16px; margin-top: 0; }
 .qa {
-  background: var(--wb-grey);
-  border-style: solid;
-  border-width: 1px;
-  border-color: var(--wb-black) var(--wb-white) var(--wb-white) var(--wb-black);
+  background: var(--chrome);
   padding: 4px 16px 10px;
   margin: 16px 0;
 }
-.qa h3 {
-  font-family: var(--chrome-font);
-  font-size: 16px;
-  margin: 10px 0 6px;
-}
-.qa h3 a { text-decoration: none; }
+.qa h3 { margin: 10px 0 6px; }
+.qa h3 a { color: var(--black); text-decoration: none; }
+.qa ul { list-style: none; padding-left: 0; margin-left: 0.5em; }
+.qa li { padding-left: 1.2em; text-indent: -1.2em; margin-bottom: 0.3em; }
+.qa li::before { content: "* "; font-family: var(--topaz); }
 p.up { text-align: right; margin: 6px 0 0; }
-a.btn {
-  display: inline-block;
-  font-family: var(--chrome-font);
-  font-size: 16px;
-  text-decoration: none;
-  background: var(--wb-grey);
-  color: var(--wb-black);
-  padding: 1px 12px;
-}
-a.btn:active { border-color: var(--wb-black) var(--wb-white) var(--wb-white) var(--wb-black); background: var(--wb-blue); }
 p.note { font-size: 13px; font-style: italic; }
 
-.foot { padding: 4px 20px 20px; font-size: 13px; }
-.foot a { color: var(--wb-black); }
-
-/* Phones: stack the sidebar above the content */
-@media (max-width: 720px) {
-  table.layout, table.layout > tbody, table.layout > tbody > tr, table.layout td.side, table.layout td.content {
-    display: block;
-    width: 100% !important;
-  }
-  table.layout { border-spacing: 0; padding: 8px; }
-  td.side { margin-bottom: 12px; }
-  td.winbody { padding: 12px !important; border-left: 0; }
-  .foot { padding: 4px 16px 16px; }
+/* Buttons: raised, and they press in when clicked */
+a.btn {
+  display: inline-block;
+  background: var(--chrome);
+  color: var(--black);
+  padding: 2px 14px;
+  text-decoration: none;
+}
+a.btn:hover { text-decoration: none; }
+a.btn:active {
+  border-color: var(--black) var(--white) var(--white) var(--black);
+  transform: translate(2px, 1px);
 }
 
-/* Topaz has no bold weight; faux-bold smears the pixels */
-.screenbar b, td.titlebar b, .qa h3 { font-weight: normal; }
-.screenbar, td.titlebar, ul.tree a, .qa h3, a.btn { -webkit-font-smoothing: none; font-smooth: never; }
-
-ul.tree li.file { margin-top: 10px; }
-/* keep icons visible on the black selected row */
-ul.tree a.sel::before { background-color: var(--wb-grey); box-shadow: 0 0 0 2px var(--wb-grey); }
-
-/* Trademark mark and footnote */
-sup.tm { font-family: var(--topaz); font-size: 8px; line-height: 0; vertical-align: 6px; margin-left: 1px; }
+/* ---------- Footer ---------- */
+.foot { padding: 4px 20px 20px; font-size: 13px; }
 .foot p.tmnote { font-size: 12px; margin-top: 6px; }
 
-/* ---- Screen menu (CSS only) ----
-   Hidden with :not() so browsers too old to open it (CSS1-era Amiga
-   browsers) never hide it: they just show the About link inline. */
-.menu { position: relative; display: inline-block; cursor: default; outline: none; }
-.mtitle { display: inline-block; padding: 2px 10px; }
-.menu:not(.never) .mitems {
-  display: none;
-  position: absolute;
-  left: 0; top: 100%;
-  min-width: 190px;
-  background: var(--wb-white);
-  border: 2px solid var(--wb-black);
-  padding: 3px 0;
-  box-shadow: 2px 2px 0 var(--wb-black);
-}
-.menu:hover .mitems, .menu:focus-within .mitems { display: block; }
-.menu:hover .mtitle, .menu:focus-within .mtitle { background: var(--wb-black); color: var(--wb-white); }
-.mitems a { display: block; padding: 2px 12px; color: var(--wb-black); text-decoration: none; }
-.mitems a:hover, .mitems a:focus { background: var(--wb-black); color: var(--wb-white); outline: none; }
-
-/* ---- About requester (CSS only, opened with :target) ---- */
+/* ---------- About requester (CSS only, opened with :target) ---------- */
 .requester { margin: 16px 20px 24px; max-width: 460px; }
 .requester:not(:target) { display: none; }
 .requester:target {
@@ -225,28 +255,43 @@ sup.tm { font-family: var(--topaz); font-size: 8px; line-height: 0; vertical-ali
   margin: 0;
   max-width: none;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  padding: 14vh 16px 0;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.4);
 }
 .req-backdrop { display: none; }
 .requester:target .req-backdrop { display: block; position: absolute; inset: 0; }
-table.reqwin { position: relative; max-width: 440px; }
+table.reqwin { position: relative; max-width: 420px; }
+table.reqwin .pane {
+  padding: 8px;
+  /* the fine dither pattern of a Workbench requester */
+  background-color: var(--white);
+  background-image:
+    linear-gradient(45deg, var(--chrome) 25%, transparent 25%, transparent 75%, var(--chrome) 75%),
+    linear-gradient(45deg, var(--chrome) 25%, transparent 25%, transparent 75%, var(--chrome) 75%);
+  background-size: 2px 2px;
+  background-position: 0 0, 1px 1px;
+}
 .reqtext {
-  border-style: solid;
-  border-width: 1px;
-  border-color: var(--wb-black) var(--wb-white) var(--wb-white) var(--wb-black);
+  background: var(--chrome);
   padding: 4px 14px;
-  margin-bottom: 14px;
+  margin: 6px 6px 14px;
   text-align: center;
 }
 .reqtext p { margin: 8px 0; }
-.reqbtns a.btn { min-width: 80px; text-align: center; padding: 3px 14px; }
-a.gad { display: block; }
-.reqtext, .reqbtns a.btn { font-family: var(--topaz); font-size: 16px; -webkit-font-smoothing: none; font-smooth: never; }
-.reqtext b { font-weight: normal; }
+.reqbtns td { padding: 0 6px 6px; }
+.reqbtns a.btn { min-width: 84px; text-align: center; padding: 4px 18px; }
 
-/* Center the tagline across the full width; the menu (about 84px wide)
-   stays top-left, so pad the right side by the same amount. */
-.tagline { flex: 1; text-align: center; padding-right: 84px; }
-@media (max-width: 720px) { .tagline { padding-right: 0; text-align: left; } }
+/* ---------- Phones: stack the sidebar above the content ---------- */
+@media (max-width: 720px) {
+  table.layout, table.layout > tbody, table.layout > tbody > tr, table.layout td.side, table.layout td.content {
+    display: block;
+    width: 100% !important;
+  }
+  table.layout { border-spacing: 0; padding: 8px; }
+  td.side { margin-bottom: 12px; }
+  .pane { padding: 12px; }
+  .tagline { text-align: left; padding: 0 8px; }
+  .foot { padding: 4px 16px 16px; }
+}
