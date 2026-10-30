@@ -396,8 +396,6 @@ with screenshots, credits and scanned manuals.</li>
 reviews and ratings.</li>
 <li><a href="https://amr.abime.net/">Amiga Magazine Rack</a> - scans of classic Amiga magazines,
 cross-referenced with the Hall of Light.</li>
-<li><a href="https://www.amigalove.com/">AmigaLove</a> - in-depth reviews of classic games, plus
-articles and a friendly forum.</li>
 </ul>
 """),
 ("Where can I find demos and music?", """
@@ -437,6 +435,8 @@ Workbench and emulation software.</li>
 <ul>
 <li><a href="https://eab.abime.net/">English Amiga Board</a> - one of the largest and most active
 Amiga forums, covering hardware, software, games and emulation.</li>
+<li><a href="https://www.amigalove.com/">AmigaLove</a> - a friendly forum and community, plus
+in-depth game reviews and articles.</li>
 <li><a href="https://www.a1k.org/">A1K</a> - a large German-language Amiga community.</li>
 <li><a href="https://www.amiga-news.de/">amiga-news.de</a> - long-running Amiga news, in English and
 German.</li>
